@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "slosite-1a39d"
+  },
+  "targets": {
+    "slosite-1a39d": {
+      "hosting": {
+        "sloSiteBeta": [
+          "slosite-1a39d"
+        ]
+      }
+    }
+  }
+}
