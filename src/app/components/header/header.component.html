@@ -1,0 +1,36 @@
+<div class="header-wrapper container-fluid py-2">
+  <div class="navbar navbar-expand">
+    <div class="navbar-brand">
+      <h1 class="header-logo" [routerLink]="['/home']">sloSite</h1>
+    </div>
+    <div class="collapse navbar-collapse">
+      <div class="navbar-nav justify-content-between w-100">
+        <div class="menu-wrapper d-flex ml-3">
+          <div class="nav-item">
+            <a class="nav-link" [routerLink]="['/home']">Home</a>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link" [routerLink]="['/vocabulary']">Vocabulary</a>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link" [routerLink]="['/grammar']">Grammar</a>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link" [routerLink]="['/practice']">Practice</a>
+          </div>
+          <div class="nav-item" *ngIf="isUserEditor">
+            <a class="nav-link" [routerLink]="['/editor']">Editor</a>
+          </div>
+        </div>
+
+        <div class="login-register-wrapper">
+<!--          <div class="nav-item">-->
+<!--            <a *ngIf="!isUserLoggedIn()" class="btn-login-register nav-link" [routerLink]="['/auth/login']">Log in / Register</a>-->
+<!--            <a *ngIf="isUserLoggedIn()" class="btn-logout nav-link" (click)="logout()">Log Out</a>-->
+<!--          </div>-->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

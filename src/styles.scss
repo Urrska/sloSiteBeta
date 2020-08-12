@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+//@import "assets/styles/error-messages.scss";
+//@import "assets/styles/preview-modal.scss";
+//@import "assets/styles/editor-select.scss";
+//@import "assets/styles/editor-rich-text.scss";
+//@import "assets/styles/modal-add-category.scss";
+@import "~ngx-smart-modal/ngx-smart-modal";
+@import '~bootstrap/scss/bootstrap';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+body, html {
+  margin: 0;
+  outline: 0;
+  height: 100%;
+  font: normal 15px 'Montserrat';
+  color: #fffffe;
+  background-color: #004643;
+  display: flex;
+  flex-direction: column;
+
+  .container-fluid:first-of-type {
+    height: 100%;
+  }
+}
+
+h1 {
+  font: bold 32px 'Montserrat';
+  color: #fffffe;
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+a, .nav-link, .navbar-brand {
+  color: #fffffe;
+
+  &:hover, :focus {
+    outline: 0;
+    color: #abd1c6;
+  }
+}

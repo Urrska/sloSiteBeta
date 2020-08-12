@@ -1,0 +1,43 @@
+.header-wrapper {
+  background-color: #004643;
+
+
+  .navbar {
+    padding: 0 19rem;
+  }
+
+  h1 {
+    cursor: pointer;
+
+    &:hover {
+      color: #abd1c6;
+    }
+  }
+
+  .nav-item {
+    .nav-link {
+      letter-spacing: 3px;
+    }
+  }
+
+  .nav-item:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+
+  .login-register-wrapper {
+    .btn-logout {
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+
+
+
+}
+
+
+
+
