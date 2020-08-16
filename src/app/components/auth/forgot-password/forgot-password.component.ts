@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../../core/services/auth-service.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
+  resetEmail: string;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private  authService: AuthService) {
   }
 
+  ngOnInit() {
+  }
+
+  resetPassword(resetEmail) {
+    this.authService.sendPasswordResetEmail(resetEmail);
+  }
 }

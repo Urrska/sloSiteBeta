@@ -5,7 +5,6 @@ import {PracticeRoutingModule} from './practice-routing.module';
 import {SharedModule} from '../../shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {RouterModule} from '@angular/router';
 import {PracticeSingleComponent} from './practice-single/practice-single.component';
 
 
@@ -20,8 +19,11 @@ import {PracticeSingleComponent} from './practice-single/practice-single.compone
     PracticeRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
-    RouterModule
+    FontAwesomeModule
+  ],
+  exports: [
+    PracticeComponent,
+    PracticeSingleComponent
   ]
 })
 export class PracticeModule { }

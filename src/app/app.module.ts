@@ -11,13 +11,10 @@ import { ForgotPasswordComponent } from './components/auth/forgot-password/forgo
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {AngularFireAuthModule} from '@angular/fire/auth';
 import {HomeModule} from './modules/home/home.module';
 import {GrammarModule} from './modules/grammar/grammar.module';
 import {PracticeModule} from './modules/practice/practice.module';
@@ -25,6 +22,10 @@ import {VocabularyModule} from './modules/vocabulary/vocabulary.module';
 import {SharedModule} from './shared/shared.module';
 import {EditorModule} from './modules/editor/editor.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterModule} from '@angular/router';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    AngularFireModule.initializeApp(environment.firebase, 'slosite'),
+    AngularFireModule.initializeApp(environment.firebase, 'sloSiteBeta'),
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
@@ -55,7 +56,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SharedModule,
     EditorModule,
     ReactiveFormsModule,
+    RouterModule,
     AppRoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

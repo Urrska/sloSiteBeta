@@ -5,13 +5,16 @@ import {TemplateGrammarComponent} from './template-grammar/template-grammar.comp
 import {TemplateVocabComponent} from './template-vocab/template-vocab.component';
 import {InstructionsGapfillComponent} from './template-gapfill/instructions-gapfill/instructions-gapfill.component';
 import {EditorRoutingModule} from './editor-routing.module';
-import {NgSelectModule} from '@ng-select/ng-select';
 import {SharedModule} from '../../shared/shared.module';
 import {CommonModule} from '@angular/common';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {NgxSmartModalModule} from 'ngx-smart-modal';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PracticeModule} from '../practice/practice.module';
+import {NgSelectModule} from '@ng-select/ng-select';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import {AngularEditorModule} from '@kolkov/angular-editor';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -27,12 +30,14 @@ import {PracticeModule} from '../practice/practice.module';
     EditorRoutingModule,
     SharedModule,
     PracticeModule,
+    RouterModule,
     ReactiveFormsModule,
     FontAwesomeModule,
     FormsModule,
     NgxSmartModalModule.forRoot(),
+    NgbDropdownModule,
     NgSelectModule,
-    // AngularEditorModule
+    AngularEditorModule
   ],
   providers: []
 })

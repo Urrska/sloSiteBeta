@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../core/services/auth-service.service';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -8,21 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   isUserEditor = true;
+  faCollapsedMenu = faBars;
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
     // this.isUserEditor = this.authService.isUserEditor;
   }
 
-  // logout() {
-  //   this.authService.logout().then();
-  // }
-  //
-  // // is this method necessary, could it be inserted directly into the template?
-  // isUserLoggedIn() {
-  //   return this.authService.isLoggedIn;
-  // }
+  logout() {
+    this.authService.logout();
+  }
+
+  isUserLoggedIn() {
+    return this.authService.isLoggedIn;
+  }
 
 }

@@ -2,19 +2,22 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PracticeComponent} from './practice.component';
 import {PracticeSingleComponent} from './practice-single/practice-single.component';
-// import {AuthGuard} from '../../core/guard/auth.guard';
+import {AuthGuard} from '../../core/guard/auth.guard';
 
 
 const practiceRoutes: Routes = [
   {
     path: 'practice',
     component: PracticeComponent,
-    // canActivate: [AuthGuard]
+    data: {requiresLogin: true},
+    canActivate: [AuthGuard]
   },
   {
     // posamezna vaja
     path: 'practice/:id',
-    component: PracticeSingleComponent
+    component: PracticeSingleComponent,
+    data: {requiresLogin: true},
+    canActivate: [AuthGuard]
   }
 ];
 
@@ -23,7 +26,8 @@ const practiceRoutes: Routes = [
   imports: [
     RouterModule.forChild(practiceRoutes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class PracticeRoutingModule {
 }

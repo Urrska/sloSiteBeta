@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {GrammarLesson} from '../../../core/models/grammar-lesson';
+import {faLongArrowAltLeft} from '@fortawesome/free-solid-svg-icons/faLongArrowAltLeft';
+import {ActivatedRoute} from '@angular/router';
+import { DatabaseService } from 'src/app/core/services/database-service.service';
+
 
 @Component({
   selector: 'app-grammar-lesson',
@@ -7,9 +12,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrammarLessonComponent implements OnInit {
 
-  constructor() { }
+  grammarLesson: GrammarLesson;
+  faLongArrow = faLongArrowAltLeft;
+  isReady = false;
 
-  ngOnInit(): void {
+  constructor(private db: DatabaseService,
+              private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    const docId = this.route.snapshot.params.lesson;
+    this.db.getDocument('grammar', docId).then(data => {
+        this.grammarLesson = new GrammarLesson(data.data());
+        this.isReady = true;
+      }
+    );
   }
 
 }

@@ -3,40 +3,48 @@
 
 
   .navbar {
-    padding: 0 19rem;
-  }
+    padding: 0 9rem;
 
-  h1 {
-    cursor: pointer;
+    .navbar-toggler {
+      background-color: #fffffe;
 
-    &:hover {
-      color: #abd1c6;
-    }
-  }
-
-  .nav-item {
-    .nav-link {
-      letter-spacing: 3px;
-    }
-  }
-
-  .nav-item:not(:last-of-type) {
-    margin-right: 1rem;
-  }
-
-  .login-register-wrapper {
-    .btn-logout {
-
-      &:hover {
-        cursor: pointer;
+      fa-icon {
+        color: #004643;
+        font-size: 1.5rem;
       }
     }
   }
+}
 
+h1 {
+  cursor: pointer;
 
+  &:hover {
+    color: #abd1c6;
+  }
+}
 
+.nav-item {
+  .nav-link {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.nav-item:not(:last-of-type) {
 
 }
+
+.login-register-wrapper {
+  .btn-logout {
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 
 
 

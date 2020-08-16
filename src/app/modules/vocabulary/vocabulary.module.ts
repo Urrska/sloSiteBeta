@@ -6,7 +6,6 @@ import {VocabularyRoutingModule} from './vocabulary-routing.module';
 import {SharedModule} from '../../shared/shared.module';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -19,8 +18,7 @@ import {RouterModule} from '@angular/router';
     SharedModule,
     CommonModule,
     FontAwesomeModule,
-    ReactiveFormsModule,
-    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     VocabularyComponent,

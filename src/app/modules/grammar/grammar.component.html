@@ -1,1 +1,20 @@
-<p>grammar works!</p>
+<div class="d-flex h-100">
+  <div class="container-fluid grammar-content-wrapper">
+
+    <div class="grammar-home-cards-wrapper my-4">
+      <div class="row">
+        <div class="img-container col mb-4" *ngFor="let gram of grammarCollection; let i = index">
+          <div class="card bg-light mb-3" [routerLink]="['/grammar/', gram.docId]">
+            <div class="card-header d-flex justify-content-center">
+              <h4 class="mb-0">{{gram.grammarTitleEng.toUpperCase()}}</h4>
+            </div>
+            <div class="card-body">
+              <p class="card-text" [innerHTML]="gram.grammarRichText | safeHtml"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

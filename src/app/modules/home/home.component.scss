@@ -1,5 +1,7 @@
+@import "../../../assets/styles/variables.scss";
+
 .home-content-wrapper {
-  padding: 0 19rem;
+  padding: 0 10rem;
 
   .hero-text-wrapper {
     margin: 6rem 0;
@@ -13,6 +15,7 @@
     &:not(last-child) {
       margin-bottom: 5rem;
     }
+
     .img-container {
       position: relative;
       width: 100%;
@@ -42,6 +45,7 @@
           cursor: pointer;
           transition: 500ms;
         }
+
         .image-title {
           opacity: 1;
           transition: 500ms;
@@ -56,17 +60,7 @@
     }
 
     button {
-      background-color: transparent;
-      color: #f9bc60;
-      border: 1px solid #f9bc60;
-      border-radius: 0;
-
-      &:hover {
-        text-decoration: none;
-        background-color: #f9bc60 !important;
-        color: #001e1d !important;
-        font-weight: 600;
-      }
+      @include button-outline;
     }
   }
 

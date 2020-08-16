@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {GrammarComponent} from './grammar.component';
-// import {AuthGuard} from '../../core/guard/auth.guard';
 import {GrammarLessonComponent} from './grammar-lesson/grammar-lesson.component';
+import {AuthGuard} from '../../core/guard/auth.guard';
 
 
 const grammarRoutes: Routes = [
   {
     path: 'grammar',
     component: GrammarComponent,
-    // canActivate: [AuthGuard]
+    data: {requiresLogin: true},
+    canActivate: [AuthGuard]
   },
   {
     path: 'grammar/:lesson',
     component: GrammarLessonComponent,
-    // canActivate: [AuthGuard]
+    data: {requiresLogin: true},
+    canActivate: [AuthGuard]
   },
 ];
 
@@ -23,6 +25,7 @@ const grammarRoutes: Routes = [
   imports: [
     RouterModule.forChild(grammarRoutes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class GrammarRoutingModule { }

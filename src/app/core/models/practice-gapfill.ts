@@ -1,4 +1,4 @@
-export class GapfillExercise {
+export class PracticeGapfill {
   title: string;
   gapfills: Gapfill[];
   docId?: string;

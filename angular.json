@@ -17,6 +17,20 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@firebase/firestore",
+              "firebase",
+              "@firebase/app",
+              "firebase/app",
+              "@firebase/auth",
+              "@firebase/util",
+              "@firebase/component",
+              "@firebase/remote-config",
+              "@firebase/functions",
+              "@firebase/performance",
+              "@firebase/database",
+              "@firebase/remote-config"
+            ],
             "outputPath": "dist/sloSiteBeta",
             "index": "src/index.html",
             "main": "src/main.ts",

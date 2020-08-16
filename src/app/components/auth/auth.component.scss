@@ -1,0 +1,23 @@
+.auth-container {
+  background-image: url("../../../assets/images/lake-login.jpg");
+  background-size: cover;
+  background-position: center;
+
+  .auth-panel-wrapper {
+    background-color: white;
+    padding: 3rem 7rem 5rem;
+
+    .toggle-auth-wrapper {
+      .btn-link {
+        font-size: 1.25rem;
+        color: #004643;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+  }
+}
+

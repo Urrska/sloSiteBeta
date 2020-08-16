@@ -1,1 +1,30 @@
-<p>editor works!</p>
+<div class="d-flex h-100">
+  <div class="container-fluid editor-content-wrapper">
+
+    <div class="editor-intro-wrapper pt-5 d-flex align-items-baseline">
+      <h6>Choose a template you want to edit:</h6>
+
+      <div class="template-choice-wrapper container-fluid">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/editor/vocabulary']">Vocabulary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/editor/grammar']">Grammar</a>
+          </li>
+          <li>
+            <div ngbDropdown class="d-inline-block">
+              <a class="nav-link" id="dropdownExercises" ngbDropdownToggle>Exercises</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownExercises">
+                <button ngbDropdownItem [routerLink]="['/editor/practice-gapfill']">Gapfill</button>
+                <button ngbDropdownItem [routerLink]="['/editor/practice-multiple-choice']">Multiple Choice</button>
+                <button ngbDropdownItem [routerLink]="['/editor/practice-word-order']">Word order</button>
+                <button ngbDropdownItem [routerLink]="['/editor/practice-input-answer']">Input answer</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

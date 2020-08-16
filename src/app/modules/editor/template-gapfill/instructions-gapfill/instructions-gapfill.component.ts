@@ -9,7 +9,7 @@ export class InstructionsGapfillComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

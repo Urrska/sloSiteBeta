@@ -1,5 +1,7 @@
 export class VocabularyLesson {
   category: string;
+  categoryEng: string;
+  categorySlo: string;
   categorySlug: string;
   headwordEng: string;
   headwordSlo: string;

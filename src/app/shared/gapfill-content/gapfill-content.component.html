@@ -1,1 +1,45 @@
-<p>gapfill-content works!</p>
+<div class="gapfill-content-wrapper d-flex row">
+  <div class="exercise-wrapper col">
+    <h5 class="exTitle mb-4">Fill in the missing words.</h5>
+    <form [formGroup]="gapfillForm" (ngSubmit)="onSubmit()">
+      <div class="form-group" formArrayName="gapfills" *ngFor="let gap of gapfillDoc.gapfills; let i = index">
+        <div class="sentence-row row mb-4">
+          <div class="col d-flex align-items-center" [formArrayName]="i">
+            <p class="sentence-id">{{i + 1}}.</p>
+            <div [ngSwitch]="sentence.type" *ngFor="let sentence of gap.sentence; let j = index"
+                 [ngClass]="{'errorInputValue': isReadyForValidation}">
+
+              <div *ngSwitchCase="'text'">
+                <p class="sentence-text ml-4">{{sentence.value}}</p>
+              </div>
+
+              <div *ngSwitchCase="'textBox'">
+                <input class="blank-word form-control form-control-sm ml-3" type="text" value="null"
+                       [formControlName]="j">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons-wrapper mt-5 pt-3">
+        <button class="btn btn-outline-dark mr-3" type="button" (click)="onReset()">Reset</button>
+        <button class="btn btn-dark mr-3" type="submit" [disabled]="!hasInputValue">Check</button>
+        <button class="btn btn-warning ml-auto" type="button" (click)="toggleSolutionDisplay()"
+                *ngIf="isReadyForValidation">{{solutionButtonValue}}
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="solutions-wrapper col-6" *ngIf="isSolutionShown">
+    <h5 class="exTitle mb-4">Solutions</h5>
+    <div class="sentence-row row mb-4" *ngFor="let data of gapfillDoc.gapfills; let i = index">
+      <div class="col d-flex align-items-center">
+        <p class="sentence-id">{{i + 1}}.</p>
+        <p class="sentence-text ml-4">{{getSentenceParts(data)}}</p>
+      </div>
+    </div>
+  </div>
+
+
+</div>

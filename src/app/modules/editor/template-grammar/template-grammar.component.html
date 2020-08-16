@@ -1,1 +1,28 @@
-<p>template-grammar works!</p>
+<div class="editor-wrapper container-fluid mt-5">
+  <div class="form-wrapper">
+    <form [formGroup]="grammarEditorForm">
+      <div class="form-content-wrapper" [formGroup]="grammarEditorForm">
+        <div class="form-group form-inline d-flex pl-2">
+          <label for="grammarTitleSlo" class="align-self-end mr-4">Slovenian title</label>
+          <input type="text" class="form-control" id="grammarTitleSlo" name="grammarTitleSlo"
+                 formControlName="grammarTitleSlo">
+        </div>
+        <div class="form-group form-inline d-flex pl-2 mb-5">
+          <label for="grammarTitleEng" class="align-self-end mr-4">English title</label>
+          <input type="text" class="form-control" id="grammarTitleEng" name="grammarTitleEng"
+                 formControlName="grammarTitleEng">
+        </div>
+        <div class="rich-text-wrapper">
+          <angular-editor formControlName="grammarRichText" [config]="editorConfig"></angular-editor>
+        </div>
+      </div>
+    </form>
+
+    <div class="confirmation-btns-wrapper d-flex justify-content-end py-4">
+      <button class="btn btn-outline-dark mr-3" type="button" (click)="onReset()">Reset</button>
+      <button class="btn btn-dark" type="submit" (click)="onSubmit()">Save</button>
+    </div>
+
+  </div>
+
+</div>

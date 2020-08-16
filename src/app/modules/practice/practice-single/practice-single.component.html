@@ -1,1 +1,13 @@
-<p>practice-single works!</p>
+<div class="gapfil-wrapper container-fluid" *ngIf="isDataReady">
+  <div class="badge-wrapper d-flex justify-content-end mb-2">
+    <button class="btn btn-outline-dark" [routerLink]="['/practice']">
+      <fa-icon [icon]="faLongArrow"></fa-icon>
+      Back to the list</button>
+  </div>
+
+  <app-gapfill-content *ngIf="gapfillForm" [gapfillForm]="gapfillForm" [gapfillDoc]="gapfillDoc"></app-gapfill-content>
+
+</div>
+
+
+

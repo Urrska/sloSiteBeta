@@ -1,0 +1,50 @@
+@import "../../../../assets/styles/variables.scss";
+
+.register-form-wrapper {
+  margin-top: 5rem;
+
+  .form-group {
+    margin-bottom: 4rem;
+
+    fa-icon {
+      margin-right: 1rem;
+      color: #004643;
+    }
+
+    label {
+      color: #004643;
+    }
+  }
+
+  input {
+    border: #004643 2px;
+    border-style: none none solid none;
+    border-radius: 0;
+  }
+}
+
+.confirmation-button-wrapper {
+  button {
+   @include button-default;
+  }
+}
+
+.faEye {
+  position: relative;
+  bottom: 28px;
+  left: 444px;
+  font-size: 1.5rem;
+  color: #abd1c6;
+  animation: ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn-link {
+  color: #004643;
+  text-decoration: underline;
+}
+
+

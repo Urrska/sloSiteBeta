@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DatabaseService} from '../../core/services/database-service.service';
+import {GrammarLesson} from '../../core/models/grammar-lesson';
 
 @Component({
   selector: 'app-grammar',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrammarComponent implements OnInit {
 
-  constructor() { }
+  grammarCollection = [];
 
-  ngOnInit(): void {
+  constructor(private db: DatabaseService) { }
+
+  ngOnInit() {
+    this.db.getCollectionData<GrammarLesson>('grammar')
+      .subscribe(res => {
+        this.grammarCollection = res;
+        console.log(this.grammarCollection);
+      });
   }
 
 }

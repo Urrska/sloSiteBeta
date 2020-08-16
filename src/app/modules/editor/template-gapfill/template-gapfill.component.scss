@@ -1,0 +1,25 @@
+.editor-wrapper {
+  .sentencePartInput {
+    width: 10em;
+  }
+
+  input {
+    border: #333 2px;
+    border-style: none none solid none;
+    border-radius: 0;
+    background-color: transparent;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .icon-instructions {
+    margin-left: 16rem;
+    font-size: 1.75rem;
+    color: chocolate;
+    cursor: pointer;
+  }
+}
+

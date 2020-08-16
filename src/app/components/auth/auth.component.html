@@ -1,1 +1,13 @@
-<p>auth works!</p>
+<div class="auth-container container-fluid h-100">
+  <div class="auth-content-wrapper row h-100 justify-content-center align-items-center">
+    <div class="auth-panel-wrapper col-4">
+      <div class="toggle-auth-wrapper d-flex justify-content-between mb-5" *ngIf="checkUrlParams()">
+        <button type="button" class="btn btn-link" [routerLink]="['login']" [routerLinkActive]="'active'">Login</button>
+        <button type="button" class="btn btn-link" [routerLink]="['register']" [routerLinkActive]="'active'">Register</button>
+      </div>
+
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>

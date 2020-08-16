@@ -1,0 +1,37 @@
+.grammar-content-wrapper {
+  margin: 4rem 10rem 0 10rem;
+
+  .card {
+    width: 30rem;
+    border-radius: 15px;
+    box-shadow: 0 0 4px -1px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      cursor: pointer;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      animation-duration: 0.25s;
+      border-left: 8px solid black;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+    .card-header {
+      h4 {
+        font-weight: 600;
+      }
+
+      &:first-child {
+        border-radius: inherit;
+      }
+    }
+
+    .card-body {
+
+    }
+  }
+
+  .card-text {
+    max-height: 10rem;
+    overflow: hidden;
+  }
+}

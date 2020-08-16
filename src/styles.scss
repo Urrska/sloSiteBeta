@@ -2,10 +2,10 @@
 //@import "assets/styles/preview-modal.scss";
 //@import "assets/styles/editor-select.scss";
 //@import "assets/styles/editor-rich-text.scss";
-//@import "assets/styles/modal-add-category.scss";
+@import "assets/styles/variables.scss";
 @import "~ngx-smart-modal/ngx-smart-modal";
-@import '~bootstrap/scss/bootstrap';
 @import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~bootstrap/scss/bootstrap';
 
 body, html {
   margin: 0;
@@ -16,10 +16,6 @@ body, html {
   background-color: #004643;
   display: flex;
   flex-direction: column;
-
-  .container-fluid:first-of-type {
-    height: 100%;
-  }
 }
 
 h1 {
@@ -30,6 +26,7 @@ h1 {
 
 p {
   margin-bottom: 0;
+  color: #fffffe;
 }
 
 a, .nav-link, .navbar-brand {
