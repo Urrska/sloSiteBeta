@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {faPlusCircle} from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import {DatabaseService} from '../../../core/services/database-service.service';
 import {NgxSmartModalService} from 'ngx-smart-modal';
 import {VocabularyCategory, VocabularyLesson} from '../../../core/models/vocab-lesson';
+import {faLongArrowAltLeft, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -13,7 +13,8 @@ import {VocabularyCategory, VocabularyLesson} from '../../../core/models/vocab-l
 })
 export class TemplateVocabComponent implements OnInit {
 
-  faPlus = faPlusCircle;
+  faPlus = faPlusSquare;
+  faLongArrow = faLongArrowAltLeft;
   vocabForm: FormGroup;
   categoryForm: FormGroup;
   categories = [];

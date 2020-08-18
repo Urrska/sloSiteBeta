@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DatabaseService} from '../../core/services/database-service.service';
 import {GrammarLesson} from '../../core/models/grammar-lesson';
+import {faArrowAltCircleRight, faLongArrowAltRight} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-grammar',
@@ -10,6 +11,7 @@ import {GrammarLesson} from '../../core/models/grammar-lesson';
 export class GrammarComponent implements OnInit {
 
   grammarCollection = [];
+  faArrowRight = faLongArrowAltRight;
 
   constructor(private db: DatabaseService) { }
 

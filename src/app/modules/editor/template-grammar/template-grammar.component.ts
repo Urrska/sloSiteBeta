@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
 import {DatabaseService} from '../../../core/services/database-service.service';
+import {faLongArrowAltLeft} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-template-grammar',
@@ -22,8 +23,8 @@ export class TemplateGrammarComponent implements OnInit {
     translate: 'no',
     placeholder: 'Start editing here...',
     defaultParagraphSeparator: 'p',
-    defaultFontName: 'Montserrat',
-    defaultFontSize: '14px',
+    defaultFontName: 'Montserrat, sans-serif',
+    defaultFontSize: '5rem',
     uploadUrl: 'v1/image',
     uploadWithCredentials: false,
     sanitize: false,
@@ -31,7 +32,9 @@ export class TemplateGrammarComponent implements OnInit {
       ['fontName', 'undo', 'redo', 'subscript', 'superscript', 'insertVideo', 'customClasses', 'toggleEditorMode'],
     ]
   };
+
   grammarEditorForm: FormGroup;
+  faLongArrow = faLongArrowAltLeft;
 
   constructor(private fb: FormBuilder,
               private db: DatabaseService,
@@ -50,7 +53,6 @@ export class TemplateGrammarComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('form submitted');
     const rawValues = this.grammarEditorForm.getRawValue();
     this.db.addDocumentToCollection('grammar', rawValues).then(res => {
       this.grammarEditorForm.reset();
@@ -59,7 +61,7 @@ export class TemplateGrammarComponent implements OnInit {
   }
 
   onReset() {
-    console.log('form reset');
+    this.grammarEditorForm.reset();
   }
 
 }

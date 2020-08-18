@@ -8,6 +8,10 @@
     .navbar-toggler {
       background-color: #fffffe;
 
+      &:hover {
+        background-color: #abd1c6;
+      }
+
       fa-icon {
         color: #004643;
         font-size: 1.5rem;
@@ -28,6 +32,11 @@ h1 {
   .nav-link {
     &:hover {
       cursor: pointer;
+    }
+
+    &:focus {
+      outline: 0;
+      color: #abd1c6;
     }
   }
 }

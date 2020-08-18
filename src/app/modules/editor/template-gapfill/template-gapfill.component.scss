@@ -1,25 +1,35 @@
+@import "../../../../assets/styles/variables.scss";
+
 .editor-wrapper {
+  padding: 2rem 10rem;
+
+  .badge {
+    border-radius: 0;
+    color: #001e1d;
+    opacity: .8;
+  }
   .sentencePartInput {
     width: 10em;
   }
 
   input {
-    border: #333 2px;
-    border-style: none none solid none;
-    border-radius: 0;
-    background-color: transparent;
-
-    &:focus {
-      outline: none;
-      box-shadow: none;
-    }
+   @include input-light;
   }
 
   .icon-instructions {
     margin-left: 16rem;
     font-size: 1.75rem;
-    color: chocolate;
+    color: #f9bc60;
     cursor: pointer;
   }
+
+  .btn-reset, .btn-preview, , .btn-sentence {
+    @include button-outline;
+  }
+
+  .btn-save {
+    @include button-default;
+  }
+
 }
 

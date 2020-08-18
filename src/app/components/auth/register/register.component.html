@@ -1,22 +1,28 @@
-<div class="register-form-wrapper">
+<div class="register-form-wrapper mt-5">
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <span><fa-icon [icon]="faEmail"></fa-icon></span>
       <label for="login-email">E-mail</label>
-      <input type="email" class="form-control" id="login-email" formControlName="email">
-      <p *ngIf="registerForm.get('email').touched && !registerForm.get('email').valid" class="errorMessage">
-        The email you entered is not valid.</p>
+      <div class="input-container">
+        <input type="email" class="form-control" id="login-email" formControlName="email">
+
+        <p *ngIf="registerForm.get('email').touched && !registerForm.get('email').valid" class="errorMessage">
+          The email you entered is not valid.</p>
+      </div>
     </div>
     <div class="form-group">
       <span><fa-icon [icon]="faPassword"></fa-icon></span>
       <label for="login-password">Password</label>
-      <input [type]="isPasswordShown ? 'text' : 'password'" class="form-control" id="login-password" formControlName="password">
-      <fa-icon *ngIf="!isPasswordShown" class="faEye" [icon]="faEye" (click)="showPassword()"></fa-icon>
-      <fa-icon *ngIf="isPasswordShown" class="faEye" [icon]="faEyeCrossed" (click)="showPassword()"></fa-icon>
+      <div class="input-container d-flex">
+        <input [type]="isPasswordShown ? 'text' : 'password'" class="form-control" id="login-password"
+               formControlName="password">
+        <fa-icon *ngIf="!isPasswordShown" class="faEye" [icon]="faEye" (click)="showPassword()"></fa-icon>
+        <fa-icon *ngIf="isPasswordShown" class="faEye" [icon]="faEyeCrossed" (click)="showPassword()"></fa-icon>
+      </div>
       <p *ngIf="registerForm.get('password').touched && !registerForm.get('password').valid" class="errorMessage">
         The password you entered is not valid.</p>
     </div>
-    <div class="confirmation-button-wrapper d-flex justify-content-center">
+    <div class="confirmation-button-wrapper d-flex justify-content-center mt-5">
       <button type="submit" class="btn w-100" [disabled]="!registerForm.valid">Sign Me Up!</button>
     </div>
   </form>

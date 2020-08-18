@@ -1,32 +1,36 @@
 @import "../../../../assets/styles/variables.scss";
 
 .login-form-wrapper {
-  margin-top: 5rem;
-
   .form-group {
-    margin-bottom: 4rem;
-
+    &:first-child {
+      margin-bottom: 3rem;
+    }
     fa-icon {
       color: #004643;
-      margin-right: 1rem;
+      margin-right: .5rem;
     }
 
     label {
       color: #004643;
     }
+
+    .errorMessage {
+      color: #f69709;
+      margin-top: 0.5rem;
+      font-size: 0.7rem;
+    }
   }
 
-  input {
-    border: #004643 2px;
-    border-style: none none solid none;
-    border-radius: 0;
+.input-container {
+  position:relative;
 
+  input {
+    @include input-dark;
   }
 
   .faEye {
-    position: relative;
-    bottom: 28px;
-    left: 444px;
+    position: absolute;
+    right: 0;
     font-size: 1.5rem;
     color: #abd1c6;
     animation: ease-in-out;
@@ -34,18 +38,25 @@
     &:hover {
       cursor: pointer;
     }
-
   }
 }
 
-.btn-link {
-  color: #004643;
-  text-decoration: underline;
+  .forgotten-password-wrapper {
+    .btn-link {
+      font-size: .9rem;
+      text-decoration: none;
+      color: #004643;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .confirmation-button-wrapper {
   button {
     @include button-default;
+    opacity: 1;
   }
 }
 

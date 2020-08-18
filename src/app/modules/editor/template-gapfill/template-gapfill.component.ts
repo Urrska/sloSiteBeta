@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {faPlusCircle} from '@fortawesome/free-solid-svg-icons/faPlusCircle';
 import {faQuestionCircle} from '@fortawesome/free-solid-svg-icons/faQuestionCircle';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PracticeGapfill} from '../../../core/models/practice-gapfill';
 import {NgxSmartModalService} from 'ngx-smart-modal';
 import {Router} from '@angular/router';
 import {DatabaseService} from '../../../core/services/database-service.service';
+import {faPlus} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-template-gapfill',
@@ -15,7 +15,7 @@ import {DatabaseService} from '../../../core/services/database-service.service';
 export class TemplateGapfillComponent implements OnInit {
   gapfillTemplateForm: FormGroup;
 
-  faPlus = faPlusCircle;
+  faPlus = faPlus;
   faInstructions = faQuestionCircle;
   documentId: string;
   formPreview: PracticeGapfill;
@@ -133,7 +133,7 @@ export class TemplateGapfillComponent implements OnInit {
     };
 
     // TODO change the id
-    this.smartModalService.open('exercise-individual-preview');
+    this.smartModalService.open('preview-gapfill');
   }
 
 }

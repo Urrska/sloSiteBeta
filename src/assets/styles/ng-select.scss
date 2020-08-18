@@ -1,0 +1,45 @@
+.ng-select {
+  &:focus {
+    outline: none;
+  }
+
+  .ng-select-container {
+    color: #fffffe;
+    background-color: transparent;
+    min-height: 36px;
+    align-items: center;
+    border: 0;
+    border-radius: 0;
+
+    .ng-arrow {
+      border-color: #abd1c6 transparent transparent !important;
+    }
+
+    .ng-value-container {
+      &:focus {
+        outline: none;
+      }
+
+      .ng-placeholder {
+        color: #abd1c6 !important;
+        font-size: 13px !important;
+      }
+    }
+  }
+
+  .ng-clear-wrapper {
+    color: #abd1c6 !important;
+  }
+
+  .ng-dropdown-panel {
+    border-radius: 0;
+
+    .ng-option {
+      color: #001e1d;
+    }
+    .ng-option-marked {
+      background-color: #abd1c6 !important;
+      color: #001e1d;
+    }
+  }
+}

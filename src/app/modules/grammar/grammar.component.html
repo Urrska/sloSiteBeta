@@ -7,6 +7,7 @@
           <div class="card bg-light mb-3" [routerLink]="['/grammar/', gram.docId]">
             <div class="card-header d-flex justify-content-center">
               <h4 class="mb-0">{{gram.grammarTitleEng.toUpperCase()}}</h4>
+              <span><fa-icon [icon]="faArrowRight"></fa-icon></span>
             </div>
             <div class="card-body">
               <p class="card-text" [innerHTML]="gram.grammarRichText | safeHtml"></p>

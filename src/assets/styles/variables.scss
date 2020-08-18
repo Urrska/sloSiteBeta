@@ -10,6 +10,11 @@
     color: #001e1d !important;
     font-weight: 600;
   }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
 }
 
 @mixin button-default {
@@ -24,5 +29,42 @@
     background-color: transparent;
     color: #f9bc60 !important;
     border: 3px solid #f9bc60 !important;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+@mixin input-light {
+  border: #fffffe 1px;
+  border-style: none none solid none;
+  border-radius: 0;
+  background-color: transparent;
+  color: #fffffe;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+@mixin input-dark {
+  border: #001e1d 1px;
+  border-style: none none solid none;
+  border-radius: 0;
+  background-color: transparent;
+  color: #001e1d;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &::placeholder {
+    color: #001e1d;
+    font-size: .9rem;
+    opacity: .6;
   }
 }

@@ -1,31 +1,36 @@
-<div class="editor-wrapper container-fluid mt-5">
+<div class="editor-wrapper">
   <div class="form-wrapper">
     <form [formGroup]="vocabForm">
       <div class="editor-img-text-wrapper d-flex row">
         <div class="col w-100">
-          <div class="form-group form-inline d-flex pl-2">
-            <label for="headwordEng" class="align-self-end mr-4">English word</label>
-            <input type="text" class="form-control" id="headwordEng" name="headwordEng"
-                   formControlName="headwordEng">
+          <div class="form-group form-inline d-flex justify-content-between">
+            <div class="d-flex">
+              <label for="headwordEng" class="mr-4">English word</label>
+              <input type="text" class="form-control" id="headwordEng" name="headwordEng"
+                     formControlName="headwordEng">
+            </div>
+            <button class="btn-navigator btn btn-outline-light" [routerLink]="['/editor']">
+              <fa-icon [icon]="faLongArrow"></fa-icon> Back to the list
+            </button>
           </div>
-          <div class="form-group form-inline d-flex pl-2">
-            <label for="headwordSlo" class="align-self-end mr-4">Slovenian word</label>
+          <div class="form-group form-inline d-flex">
+            <label for="headwordSlo" class="mr-4">Slovenian word</label>
             <input type="text" class="form-control" id="headwordSlo" name="headwordSlo"
                    formControlName="headwordSlo">
           </div>
-          <div class="form-group form-inline d-flex pl-2 mb-4">
-            <label for="external-url-input" class="align-self-end mr-4">Upload an image</label>
-            <input type="text" class="form-control" id="external-url-input" placeholder="Paste your URL"
+          <div class="form-group form-inline d-flex mb-4">
+            <label for="external-url-input" class="mr-4">Upload an image (URL)</label>
+            <input type="text" class="form-control" id="external-url-input"
                    name="external-url-input" formControlName="image">
           </div>
-          <div class="category-selector-wrapper form-inline ml-2">
+          <div class="category-selector-wrapper form-inline">
             <label for="categoryEng" class="mr-4">Pick a category</label>
             <ng-select placeholder="Izberite" id="categoryEng" [items]="categories"
                        bindLabel="categoryEng"
                        formControlName="category">
             </ng-select>
             <p class="ml-4">Or add a new category</p>
-            <fa-icon class="ml-2" [icon]="faPlus" (click)="smartModalService.open('add-category')"></fa-icon>
+            <fa-icon class="fa-plus mx-4" [icon]="faPlus" (click)="smartModalService.open('add-category')"></fa-icon>
 
           </div>
         </div>
@@ -89,8 +94,8 @@
     </form>
 
     <div class="confirmation-btns-wrapper d-flex justify-content-end py-4">
-      <button class="btn btn-outline-dark mr-3" type="button" (click)="onReset()">Reset</button>
-      <button class="btn btn-dark" type="submit" (click)="onSubmit()">Save</button>
+      <button class="btn-reset btn btn-outline-dark mr-3" type="button" (click)="onReset()">Reset</button>
+      <button class="btn-save btn btn-dark" type="submit" (click)="onSubmit()">Save</button>
     </div>
 
   </div>
@@ -122,9 +127,9 @@
             </div>
           </div>
         </div>
-        <div class="confirmation-btns-wrapper d-flex justify-content-end mt-3">
-          <button class="btn btn-outline-dark mr-3" type="button" (click)="onResetCategory()">Reset</button>
-          <button class="btn btn-dark" type="submit">Save</button>
+        <div class="confirmation-btns-wrapper d-flex justify-content-end">
+          <button class="btn-reset btn btn-outline-dark mr-3" type="button" (click)="onResetCategory()">Reset</button>
+          <button class="btn-save btn btn-dark" type="submit">Save</button>
         </div>
       </form>
     </div>

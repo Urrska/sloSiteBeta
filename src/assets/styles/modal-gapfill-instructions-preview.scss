@@ -1,0 +1,20 @@
+.instructions-gapfill, .preview-gapfill {
+  .nsm-dialog {
+    max-width: unset;
+    justify-content: center;
+
+    .nsm-content {
+      padding: 3rem 2rem;
+      border-radius: 0;
+      opacity: .9;
+    }
+  }
+}
+
+
+.preview-gapfill {
+  .nsm-content {
+    background-color: #004643;
+
+  }
+}

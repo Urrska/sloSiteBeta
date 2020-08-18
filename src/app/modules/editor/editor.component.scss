@@ -1,8 +1,21 @@
 .editor-content-wrapper {
-  margin: 0 10rem;
+  margin: 0 9rem;
 
-.template-choice-wrapper {
-  border-block-start-width: initial;
-  width: auto;
-}
+  .template-choice-wrapper {
+    border-block-start-width: initial;
+    width: auto;
+
+    .nav-link:hover {
+      cursor: pointer;
+    }
+
+    button:not(:disabled) {
+      color: #001e1d;
+
+      &:hover {
+        background-color: #abd1c6;
+        cursor: pointer;
+      }
+    }
+  }
 }

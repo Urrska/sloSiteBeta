@@ -2,13 +2,13 @@
   <div class="container-fluid exercise-content-wrapper">
 
     <div class="exercise-home-cards-wrapper my-4">
-      <div class="row">
-        <div class="img-container col-md-5 col-lg-4 col-xl-3 col-sm-2 mb-4"
+      <div class="row justify-content-start">
+        <div class="img-container col mb-4"
              *ngFor="let gapfill of practiceGapfillCollection; let i = index"
              [routerLink]="['/practice/', gapfill.docId]">
           <img class="image" [src]="gapfill.image" [alt]="gapfill.title">
-          <div class="category-name">
-            <fa-icon [icon]="faEdit"></fa-icon>
+          <div class="category-name d-flex">
+           <fa-icon [icon]="faEdit"></fa-icon>
             <h5 class="overlay-text">{{gapfill.title.toUpperCase()}}</h5>
           </div>
         </div>

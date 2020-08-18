@@ -1,0 +1,40 @@
+.rich-text-wrapper {
+  .angular-editor {
+    .angular-editor-toolbar {
+      padding: .5rem;
+      background-color: #abd1c6;
+      border: 1px solid white;
+      font: 100 1rem/17px Montserrat, sans-serif;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .angular-editor-wrapper {
+      background-color: transparent;
+      border: solid 1px white;
+      opacity: .9;
+      box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+
+      span {
+        padding: 1.75rem !important;
+      }
+
+      .angular-editor-placeholder {
+        color: #abd1c6 !important;
+      }
+
+      .angular-editor-textarea {
+        margin-top: 0;
+        padding: 1.5rem !important;
+
+        &:focus {
+          outline: none;
+        }
+
+      }
+    }
+  }
+}

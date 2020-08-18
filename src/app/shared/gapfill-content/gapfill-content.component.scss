@@ -1,18 +1,76 @@
-.blank-word {
+@import "../../../assets/styles/variables.scss";
 
-  border: #333 2px;
-  border-style: none none solid none;
-  border-radius: 0;
-  background-color: transparent;
+.gapfill-content-wrapper, .preview-gapfill {
+  input {
+    @include input-light;
+  }
 
-  &:focus {
-    outline: none;
-    box-shadow: none;
+  .practice-wrapper {
+    .sentence-row {
+      .sentence-id {
+        width: .75rem;
+      }
+    }
+    .buttons-wrapper {
+      .btn-reset {
+        @include button-outline;
+      }
+
+      .btn-check, .btn-solutions {
+        @include button-default;
+      }
+    }
+  }
+
+  .solutions-wrapper {
+    margin-top: 1.36px;
+
+    .sentence-row {
+      height: 30px;
+
+      .sentence-id {
+        width: .75rem;
+      }
+    }
+  }
+
+  .buttons-wrapper {
+    border-top: solid 1px #3333;
   }
 }
+.preview-gapfill {
+  .errorInputValue {
+    .ng-invalid {
+      border: #f69709 1px;
+      border-style: none none solid none;
+      border-radius: 0;
+      background-color: transparent;
+      color: #f69709;
+    }
 
-.solutions-wrapper {
-  .sentence-row {
-    height: 2rem;
+    .ng-valid {
+      border-radius: 0;
+      border: 0;
+      background-color: transparent;
+      color: #abd1c6;
+    }
+  }
+
+}
+
+.errorInputValue {
+  .ng-invalid {
+    border: #f69709 1px;
+    border-style: none none solid none;
+    border-radius: 0;
+    background-color: transparent;
+    color: #f69709;
+  }
+
+  .ng-valid {
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    color: #abd1c6;
   }
 }

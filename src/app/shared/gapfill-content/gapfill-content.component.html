@@ -1,6 +1,5 @@
 <div class="gapfill-content-wrapper d-flex row">
-  <div class="exercise-wrapper col">
-    <h5 class="exTitle mb-4">Fill in the missing words.</h5>
+  <div class="practice-wrapper col">
     <form [formGroup]="gapfillForm" (ngSubmit)="onSubmit()">
       <div class="form-group" formArrayName="gapfills" *ngFor="let gap of gapfillDoc.gapfills; let i = index">
         <div class="sentence-row row mb-4">
@@ -22,17 +21,16 @@
         </div>
       </div>
       <div class="buttons-wrapper mt-5 pt-3">
-        <button class="btn btn-outline-dark mr-3" type="button" (click)="onReset()">Reset</button>
-        <button class="btn btn-dark mr-3" type="submit" [disabled]="!hasInputValue">Check</button>
-        <button class="btn btn-warning ml-auto" type="button" (click)="toggleSolutionDisplay()"
+        <button class="btn-reset btn btn-outline-light mr-3" type="button" (click)="onReset()">Reset</button>
+        <button class="btn-check btn btn-light mr-3" type="submit" [disabled]="!hasInputValue">Check</button>
+        <button class=" btn-solutions btn btn-light ml-auto" type="button" (click)="toggleSolutionDisplay()"
                 *ngIf="isReadyForValidation">{{solutionButtonValue}}
         </button>
       </div>
     </form>
   </div>
 
-  <div class="solutions-wrapper col-6" *ngIf="isSolutionShown">
-    <h5 class="exTitle mb-4">Solutions</h5>
+  <div class="solutions-wrapper col" *ngIf="isSolutionShown">
     <div class="sentence-row row mb-4" *ngFor="let data of gapfillDoc.gapfills; let i = index">
       <div class="col d-flex align-items-center">
         <p class="sentence-id">{{i + 1}}.</p>

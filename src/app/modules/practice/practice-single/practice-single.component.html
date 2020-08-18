@@ -1,6 +1,7 @@
 <div class="gapfil-wrapper container-fluid" *ngIf="isDataReady">
-  <div class="badge-wrapper d-flex justify-content-end mb-2">
-    <button class="btn btn-outline-dark" [routerLink]="['/practice']">
+  <div class="badge-wrapper d-flex justify-content-between align-items-center mb-5">
+    <h4 *ngIf="gapfillForm">Fill in the blanks</h4>
+    <button class="btn btn-outline-light" [routerLink]="['/practice']">
       <fa-icon [icon]="faLongArrow"></fa-icon>
       Back to the list</button>
   </div>

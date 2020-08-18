@@ -1,7 +1,8 @@
 //@import "assets/styles/error-messages.scss";
-//@import "assets/styles/preview-modal.scss";
-//@import "assets/styles/editor-select.scss";
-//@import "assets/styles/editor-rich-text.scss";
+@import "assets/styles/modal-vocab-category.scss";
+@import "assets/styles/modal-gapfill-instructions-preview";
+@import "assets/styles/ng-select.scss";
+@import "assets/styles/text-editor.scss";
 @import "assets/styles/variables.scss";
 @import "~ngx-smart-modal/ngx-smart-modal";
 @import "~@ng-select/ng-select/themes/default.theme.css";
