@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {PracticeGapfill} from '../../../core/models/practice-gapfill';
 import {faLongArrowAltLeft} from '@fortawesome/free-solid-svg-icons/faLongArrowAltLeft';
@@ -14,19 +14,16 @@ import {ActivatedRoute} from '@angular/router';
 export class PracticeSingleComponent implements OnInit {
 
   faLongArrow = faLongArrowAltLeft;
-
   gapfillForm: FormGroup;
-
   isDataReady = false;
   hasInputValue = false;
   isReadyForValidation = false;
-  isSolutionShown = false;
-
   gapfillDoc: PracticeGapfill;
 
   constructor(private fb: FormBuilder,
               private db: DatabaseService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     const docId = this.route.snapshot.params.id;
@@ -36,14 +33,13 @@ export class PracticeSingleComponent implements OnInit {
     });
   }
 
-
   initializeForm() {
     this.gapfillForm = this.fb.group({
       gapfills: this.fb.array(
         this.gapfillDoc.gapfills.map(gaps => this.fb.array(
           gaps.sentence
             .map(sentencePart => {
-              if (sentencePart.type === 'textBox') {
+              if (sentencePart.type === 'B') {
                 return this.fb.control
                 (null, [Validators.required, Validators.pattern(`(?:^|\W)${sentencePart.expectedValue}(?:$|\W)`)]);
               } else {
@@ -61,14 +57,6 @@ export class PracticeSingleComponent implements OnInit {
     });
   }
 
-  getSentenceParts(data) {
-    const sentenceFull = [];
-    data.sentence.forEach(sentencePart => {
-      sentencePart.value !== null ? sentenceFull.push(sentencePart.value) : sentenceFull.push(sentencePart.expectedValue);
-    });
-    return sentenceFull.join(' ');
-  }
-
   toggleDisabledButton() {
     const checkableInputs = [];
     (this.gapfillForm.get('gapfills') as FormArray).controls
@@ -83,16 +71,4 @@ export class PracticeSingleComponent implements OnInit {
   onSubmit() {
     this.isReadyForValidation = true;
   }
-
-  onReset() {
-    this.gapfillForm.reset();
-    this.isReadyForValidation = false;
-    this.isSolutionShown = false;
-    this.hasInputValue = false;
-  }
-
-  toggleSolutionDisplay() {
-    this.isSolutionShown = !this.isSolutionShown;
-  }
-
 }

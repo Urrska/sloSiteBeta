@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../core/services/auth-service.service';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
 
@@ -9,14 +9,20 @@ import {faBars} from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
 
-  isUserEditor = true;
   faCollapsedMenu = faBars;
+  isAdmin: boolean;
 
   constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
-    // this.isUserEditor = this.authService.isUserEditor;
+    this.isUserAdmin();
+  }
+
+  isUserAdmin() {
+    this.authService.user.subscribe(res => {
+      this.isAdmin = res.role.admin;
+    });
   }
 
   logout() {

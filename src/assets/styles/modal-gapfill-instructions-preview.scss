@@ -1,4 +1,4 @@
-.instructions-gapfill, .preview-gapfill {
+.instructions-gapfill {
   .nsm-dialog {
     max-width: unset;
     justify-content: center;
@@ -6,15 +6,31 @@
     .nsm-content {
       padding: 3rem 2rem;
       border-radius: 0;
-      opacity: .9;
     }
   }
 }
 
 
 .preview-gapfill {
-  .nsm-content {
-    background-color: #004643;
+  justify-content: center;
 
+  .nsm-dialog {
+    max-width: unset;
+    display: flex;
+    justify-content: center;
+    width: 91%;
+
+    .nsm-content {
+      width: 100%;
+      padding: 3rem 2rem;
+      background-color: #004643;
+
+      .nsm-dialog-btn-close {
+        color: #fffffe;
+        font-size: 2rem;
+        margin-right: .5rem;
+      }
+    }
   }
+
 }

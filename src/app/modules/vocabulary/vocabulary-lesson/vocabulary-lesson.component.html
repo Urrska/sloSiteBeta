@@ -1,6 +1,6 @@
 <div class="vocab-lesson-wrapper container-fluid">
   <div class="badge-wrapper d-flex justify-content-between align-items-center mb-2 mt-4">
-    <h4>{{lessonsByCategory[0].category}}</h4>
+    <h4>{{lessonsByCategory[0]?.categoryEng}}</h4>
     <button class="btn btn-outline-light" [routerLink]="['/vocabulary']">
       <fa-icon [icon]="faLongArrow"></fa-icon>
       Back to the list

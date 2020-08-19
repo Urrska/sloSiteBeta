@@ -3,19 +3,25 @@
     <div class="editor-form-wrapper col">
       <form [formGroup]="gapfillTemplateForm">
         <div class="title-input-wrapper mb-4 form-inline flex-column align-items-start">
+          <div class="instructions-wrapper d-flex justify-content-start align-items-center mb-4">
+            <h6>Create your own gapfill exercise. If you have confusions click the question mark</h6>
+            <fa-icon class="icon-instructions ml-4" [icon]="faInstructions"
+                     (click)="smartModalService.open('instructions-gapfill')"></fa-icon>
+          </div>
           <div class="form-inline mb-4">
             <p>Choose a title:</p>
-            <input class="form-control form-control-sm ml-3" type="text" formControlName="title">
-            <fa-icon class="icon-instructions" [icon]="faInstructions"
-                     (click)="smartModalService.open('instructions-gapfill')"></fa-icon>
+            <input class="form-control form-control-sm ml-3" type="text" formControlName="title"
+                   (input)="resizeInputLength($event)">
           </div>
           <div class="form-inline mb-5">
             <p>Choose an image:</p>
-            <input class="form-control form-control-sm ml-3" type="text" formControlName="image">
+            <input class="form-control form-control-sm ml-3" type="text" formControlName="image"
+                   (input)="resizeInputLength($event)">
           </div>
         </div>
         <div class="gapfills-wrapper" formArrayName="gapfills">
-          <div class="form-group d-flex align-items-center mb-5" *ngFor="let gapfill of getGapfillControls(); let i = index"
+          <div class="form-group d-flex align-items-center mb-5"
+               *ngFor="let gapfill of getGapfillControls(); let i = index"
                [formArrayName]="i">
             <p>{{i + 1}}</p>
             <div class="sentence-wrapper d-flex flex-column align-items-end"
@@ -24,10 +30,11 @@
               <input id="input-{{i}}{{j}}" class="form-control form-control-sm ml-3 sentencePartInput" type="text"
                      [formControlName]="toggleControlName(gapfill, j)"
                      (keyup.enter)="delimitInput($event, gapfill, j)"
-                     (keyup.control.enter)="toggleInputType(gapfill, j)">
+                     (keyup.control.enter)="toggleInputType(gapfill, j)"
+                     (input)="resizeInputLength($event)">
             </div>
           </div>
-          <button class="btn-sentence btn btn-outline-light mt-4" type="button" (click)="generateNewLine()">
+          <button class="btn-sentence btn btn-outline-light mt-4" type="button" (click)="generateNewLine($event)">
             <fa-icon class="fa-plus mr-2" [icon]="faPlus"></fa-icon>
             New sentence
           </button>
@@ -36,20 +43,21 @@
       <div class="confirmation-btns-wrapper d-flex justify-content-end py-4">
         <button class="btn-reset btn btn-outline-light mr-3" type="button" (click)="onReset()">Reset</button>
         <button class="btn-preview btn btn-outline-light mr-3" type="button" (click)="openModal()">Preview</button>
-        <button class="btn-save btn btn-light" type="submit" (click)="onSubmit()"
-                [routerLink]="['/practice/', documentId]">Save
+        <button class="btn-save btn btn-light" type="submit" (click)="onSubmit()">Save
         </button>
       </div>
     </div>
   </div>
 </div>
 
-<ngx-smart-modal identifier="preview-gapfill" class="preview-gapfill d-flex justify-content-center" customClass="nsm-centered">
-  <app-gapfill-content *ngIf="formPreview" [gapfillForm]="gapfillTemplateForm" [gapfillDoc]="formPreview">
+<ngx-smart-modal identifier="preview-gapfill" class="preview-gapfill d-flex justify-content-center"
+                 customClass="nsm-centered">
+  <app-gapfill-content *ngIf="formPreview && docPreview" [gapfillForm]="formPreview" [gapfillDoc]="docPreview">
   </app-gapfill-content>
 </ngx-smart-modal>
 
-<ngx-smart-modal identifier="instructions-gapfill" class="instructions-gapfill d-flex justify-content-center" customClass="nsm-centered">
+<ngx-smart-modal identifier="instructions-gapfill" class="instructions-gapfill d-flex justify-content-center"
+                 customClass="nsm-centered">
   <app-instructions-gapfill></app-instructions-gapfill>
 </ngx-smart-modal>
 

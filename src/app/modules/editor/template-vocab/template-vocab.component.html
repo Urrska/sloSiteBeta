@@ -27,7 +27,7 @@
             <label for="categoryEng" class="mr-4">Pick a category</label>
             <ng-select placeholder="Izberite" id="categoryEng" [items]="categories"
                        bindLabel="categoryEng"
-                       formControlName="category">
+                       [formControl]="categoryForm.get('categoryEng')">
             </ng-select>
             <p class="ml-4">Or add a new category</p>
             <fa-icon class="fa-plus mx-4" [icon]="faPlus" (click)="smartModalService.open('add-category')"></fa-icon>
@@ -111,17 +111,17 @@
         <div class="d-flex row">
           <div class="add-category-content-wrapper col w-100 pb-3">
             <div class="form-group form-inline d-flex pl-2">
-              <label for="categoryEngInput" class="align-self-end mr-4">English category name</label>
+              <label for="categoryEngInput" class="mr-4">English category name</label>
               <input type="text" class="form-control" id="categoryEngInput" name="categoryEngInput"
                      formControlName="categoryEng">
             </div>
             <div class="form-group form-inline d-flex pl-2">
-              <label for="categorySlo" class="align-self-end mr-4">Slovenian category name</label>
+              <label for="categorySlo" class="mr-4">Slovenian category name</label>
               <input type="text" class="form-control" id="categorySlo" name="categoryEng"
                      formControlName="categorySlo">
             </div>
             <div class="form-group form-inline d-flex pl-2 mb-4">
-              <label for="thumb-image-url" class="align-self-end mr-4">URL to your image</label>
+              <label for="thumb-image-url" class="mr-4">URL to your image</label>
               <input type="text" class="form-control" id="thumb-image-url"
                      name="thumb-image-url" formControlName="thumbImage">
             </div>

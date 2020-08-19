@@ -5,14 +5,17 @@ export class PracticeGapfill {
   image: string;
 
   constructor(data) {
-    this.title = data.title;
-    this.image = data.image;
-    if (data.docId) {
-      this.docId = data.docId;
+    if (data) {
+      this.title = data.title;
+      this.image = data.image;
+      if (data.docId) {
+        this.docId = data.docId;
+      }
+      this.gapfills = data.gapfills.map(gapfill => new Gapfill(gapfill));
     }
-    this.gapfills = data.gapfills.map(gapfill => new Gapfill(gapfill));
   }
 }
+
 
 export class Gapfill {
   sentence: Sentence[];

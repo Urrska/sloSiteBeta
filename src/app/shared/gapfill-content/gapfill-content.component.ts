@@ -20,9 +20,13 @@ export class GapfillContentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.gapfillForm.valueChanges.subscribe(() => {
-      this.toggleDisabledButton();
-    });
+    console.log(this.gapfillForm);
+    console.log(this.gapfillDoc);
+    this.gapfillForm.valueChanges.subscribe(() => this.toggleDisabledButton());
+  }
+
+  resizeInputLength(event) {
+    event.target.style.width = (event.target.value.length + 2 ) + 'ch';
   }
 
   getSentenceParts(data) {

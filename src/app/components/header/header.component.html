@@ -24,7 +24,7 @@
           <ul class="nav-item">
             <li class="nav-link" [routerLink]="['/practice']">Practice</li>
           </ul>
-          <ul class="nav-item" *ngIf="isUserEditor">
+          <ul class="nav-item" *ngIf="isAdmin">
             <li class="nav-link" [routerLink]="['/editor']">Editor</li>
           </ul>
         </div>

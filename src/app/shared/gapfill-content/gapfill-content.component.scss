@@ -3,6 +3,7 @@
 .gapfill-content-wrapper, .preview-gapfill {
   input {
     @include input-light;
+    width: 5ch;
   }
 
   .practice-wrapper {

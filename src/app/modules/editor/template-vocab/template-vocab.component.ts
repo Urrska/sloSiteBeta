@@ -29,12 +29,12 @@ export class TemplateVocabComponent implements OnInit {
     this.db.getCollectionData<VocabularyCategory>('vocab-category')
       .subscribe(res => {
         this.categories = res;
+        console.log(this.categories);
       });
   }
 
   initializeVocabForm() {
     this.vocabForm = this.fb.group({
-      category: [null, Validators.required],
       categoryEng: [null, Validators.required],
       categorySlo: [null, Validators.required],
       categorySlug: [null, Validators.required],
@@ -107,8 +107,8 @@ export class TemplateVocabComponent implements OnInit {
 
   onSubmit() {
     const rawValues = this.vocabForm.getRawValue();
-    rawValues.categoryEng = rawValues.category.categoryEng.toLowerCase();
-    rawValues.categorySlo = rawValues.category.categorySlo.toLowerCase();
+    rawValues.categoryEng = this.categories[0].categoryEng;
+    rawValues.categorySlo = this.categories[0].categorySlo;
     rawValues.categorySlug = this.slugify(rawValues.categoryEng);
     // ne sme navigirati na VocabLesson Page
     this.db.addDocumentToCollection<VocabularyLesson>('vocabulary', rawValues).then(() => this.onReset());

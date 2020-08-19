@@ -5,6 +5,7 @@ import {TemplateVocabComponent} from './template-vocab/template-vocab.component'
 import {TemplateGrammarComponent} from './template-grammar/template-grammar.component';
 import {TemplateGapfillComponent} from './template-gapfill/template-gapfill.component';
 import {AuthGuard} from '../../core/guard/auth.guard';
+import {AdminGuard} from '../../core/guard/admin.guard';
 
 
 const editorRoutes: Routes = [
@@ -12,28 +13,28 @@ const editorRoutes: Routes = [
     path: 'editor',
     component: EditorComponent,
     data: {requiresLogin: true},
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
 
   },
   {
     path: 'editor/vocabulary',
     component: TemplateVocabComponent,
     data: {requiresLogin: true},
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
 
   },
   {
     path: 'editor/grammar',
     component: TemplateGrammarComponent,
     data: {requiresLogin: true},
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
 
   },
   {
     path: 'editor/practice-gapfill',
     component: TemplateGapfillComponent,
     data: {requiresLogin: true},
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
 
   }
 ];
@@ -41,7 +42,7 @@ const editorRoutes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(editorRoutes)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard, AdminGuard]
 })
 export class EditorRoutingModule {
 }
