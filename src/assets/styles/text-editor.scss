@@ -1,6 +1,6 @@
 .rich-text-wrapper {
-  .angular-editor {
-    .angular-editor-toolbar {
+  quill-editor {
+    .ql-toolbar {
       padding: .5rem;
       background-color: #abd1c6;
       border: 1px solid white;
@@ -10,31 +10,36 @@
       &:focus {
         outline: none;
       }
+
+      .ql-stroke {
+        fill: none;
+        stroke: #001e1d;
+      }
+
+      .ql-fill {
+        fill: #001e1d;
+        stroke: none;
+      }
+
+      .ql-picker {
+        color: #001e1d;
+      }
     }
 
-    .angular-editor-wrapper {
+    .ql-editor {
       background-color: transparent;
       border: solid 1px white;
       opacity: .9;
       box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      letter-spacing: 1px;
 
-      span {
-        padding: 1.75rem !important;
-      }
-
-      .angular-editor-placeholder {
+      &::before {
         color: #abd1c6 !important;
-      }
-
-      .angular-editor-textarea {
-        margin-top: 0;
-        padding: 1.5rem !important;
-
-        &:focus {
-          outline: none;
-        }
-
       }
     }
   }
 }
+
+

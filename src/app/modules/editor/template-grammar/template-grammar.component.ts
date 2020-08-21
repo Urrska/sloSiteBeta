@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {GrammarLesson} from '../../../core/models/grammar-lesson';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {AngularEditorConfig} from '@kolkov/angular-editor';
 import {DatabaseService} from '../../../core/services/database-service.service';
 import {faLongArrowAltLeft} from '@fortawesome/free-solid-svg-icons';
 
@@ -14,31 +13,31 @@ import {faLongArrowAltLeft} from '@fortawesome/free-solid-svg-icons';
 export class TemplateGrammarComponent implements OnInit {
 
   @Input() grammarCollection: GrammarLesson;
-  editorConfig: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: '30rem',
-    minHeight: '10rem',
-    width: 'auto',
-    translate: 'no',
-    placeholder: 'Start editing here...',
-    defaultParagraphSeparator: 'p',
-    defaultFontName: 'Montserrat, sans-serif',
-    defaultFontSize: '5rem',
-    uploadUrl: 'v1/image',
-    uploadWithCredentials: false,
-    sanitize: false,
-    toolbarHiddenButtons: [
-      ['fontName', 'undo', 'redo', 'subscript', 'superscript', 'insertVideo', 'customClasses', 'toggleEditorMode'],
-    ]
-  };
 
   grammarEditorForm: FormGroup;
   faLongArrow = faLongArrowAltLeft;
 
+  editorStyles = {
+    height: '28rem'
+  };
+
+  config = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],
+      [{list: 'ordered'}, {list: 'bullet'}],
+      [{indent: '-1'}, {indent: '+1'}],
+      [{size: ['small', false, 'large', 'huge']}],
+      [{color: []}, {background: []}],
+      [{align: []}],
+      ['clean'],
+      ['link', 'image']
+    ]
+  };
+
   constructor(private fb: FormBuilder,
               private db: DatabaseService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.initializeGrammarEditorForm();

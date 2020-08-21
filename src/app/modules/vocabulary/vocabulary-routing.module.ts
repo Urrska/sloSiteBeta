@@ -10,14 +10,12 @@ const vocabularyRoutes: Routes = [
     // seznam vseh vaj
     path: 'vocabulary',
     component: VocabularyComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard]
   },
   {
     // posamezna vaja
     path: 'vocabulary/:category',
     component: VocabularyLessonComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard]
   }
 ];

@@ -7,35 +7,26 @@ import {TemplateGapfillComponent} from './template-gapfill/template-gapfill.comp
 import {AuthGuard} from '../../core/guard/auth.guard';
 import {AdminGuard} from '../../core/guard/admin.guard';
 
-
 const editorRoutes: Routes = [
   {
     path: 'editor',
     component: EditorComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard, AdminGuard]
-
   },
   {
     path: 'editor/vocabulary',
     component: TemplateVocabComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard, AdminGuard]
-
   },
   {
     path: 'editor/grammar',
     component: TemplateGrammarComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard, AdminGuard]
-
   },
   {
     path: 'editor/practice-gapfill',
     component: TemplateGapfillComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard, AdminGuard]
-
   }
 ];
 

@@ -1,58 +1,54 @@
-.header-wrapper {
-  background-color: #004643;
+nav {
+  padding: 0 9rem;
 
+  .navbar-toggler {
+    background-color: #fffffe;
 
-  .navbar {
-    padding: 0 9rem;
+    &:hover {
+      background-color: #abd1c6;
+    }
 
-    .navbar-toggler {
-      background-color: #fffffe;
-
-      &:hover {
-        background-color: #abd1c6;
-      }
-
-      fa-icon {
-        color: #004643;
-        font-size: 1.5rem;
-      }
+    fa-icon {
+      color: #004643;
+      font-size: 1.5rem;
     }
   }
 }
 
-h1 {
+.navbar-brand {
+  font: bold 32px 'Montserrat';
   cursor: pointer;
+  color: #fffffe;
+  margin-bottom: 0;
 
   &:hover {
+    color: #abd1c6;
+    cursor: pointer;
+  }
+}
+
+.nav-link {
+  padding-left: 0;
+  padding-right: 2rem;
+  &:hover {
+
+    cursor: pointer;
+    color: #abd1c6;
+  }
+
+  &:focus {
+    outline: 0;
     color: #abd1c6;
   }
 }
 
-.nav-item {
-  .nav-link {
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:focus {
-      outline: 0;
-      color: #abd1c6;
-    }
-  }
-}
-
-.nav-item:not(:last-of-type) {
-
-}
 
 .login-register-wrapper {
-  .btn-logout {
-
-    &:hover {
-      cursor: pointer;
-    }
+  a {
+    cursor: pointer;
   }
 }
+
 
 
 

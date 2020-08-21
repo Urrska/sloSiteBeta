@@ -13,8 +13,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {PracticeModule} from '../practice/practice.module';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
-import {AngularEditorModule} from '@kolkov/angular-editor';
 import {RouterModule} from '@angular/router';
+import {QuillModule} from 'ngx-quill';
+import {BrowserModule} from '@angular/platform-browser';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {RouterModule} from '@angular/router';
   ],
   imports: [
     CommonModule,
+    BrowserModule,
     EditorRoutingModule,
     SharedModule,
     PracticeModule,
@@ -37,7 +39,7 @@ import {RouterModule} from '@angular/router';
     NgxSmartModalModule.forRoot(),
     NgbDropdownModule,
     NgSelectModule,
-    AngularEditorModule
+    QuillModule.forRoot()
   ],
   providers: []
 })

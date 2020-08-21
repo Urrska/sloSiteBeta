@@ -1,10 +1,20 @@
 @import "../../../../assets/styles/variables.scss";
 
 .login-form-wrapper {
+
+  .validation-error-messages {
+    p {
+      color: #f69709;
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+  }
+
   .form-group {
     &:first-child {
       margin-bottom: 3rem;
     }
+
     fa-icon {
       color: #004643;
       margin-right: .5rem;
@@ -21,31 +31,32 @@
     }
   }
 
-.input-container {
-  position:relative;
+  .input-container {
+    position: relative;
 
-  input {
-    @include input-dark;
-  }
+    input {
+      @include input-dark;
+    }
 
-  .faEye {
-    position: absolute;
-    right: 0;
-    font-size: 1.5rem;
-    color: #abd1c6;
-    animation: ease-in-out;
+    .faEye {
+      position: absolute;
+      right: 0;
+      font-size: 1.5rem;
+      color: #abd1c6;
+      animation: ease-in-out;
 
-    &:hover {
-      cursor: pointer;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
-}
 
   .forgotten-password-wrapper {
     .btn-link {
       font-size: .9rem;
       text-decoration: none;
       color: #004643;
+
       &:hover {
         text-decoration: underline;
       }

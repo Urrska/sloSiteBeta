@@ -4,8 +4,9 @@
 @import "assets/styles/text-editor.scss";
 @import "assets/styles/variables.scss";
 @import "~ngx-smart-modal/ngx-smart-modal";
-@import "~@ng-select/ng-select/themes/default.theme.css";
+
 @import '~bootstrap/scss/bootstrap';
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 body, html {
   margin: 0;

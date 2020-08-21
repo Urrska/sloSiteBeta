@@ -10,7 +10,7 @@
               <span><fa-icon [icon]="faArrowRight"></fa-icon></span>
             </div>
             <div class="card-body">
-              <p class="card-text" [innerHTML]="gram.grammarRichText | safeHtml"></p>
+              <p class="card-text" [innerHTML]="gram.grammarRichText" #cardText></p>
             </div>
           </div>
         </div>

@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   title = 'sloSite';
 
   items: Observable<any[]>;
-
   isNavigationShown = true;
 
   constructor(private router: Router,

@@ -26,6 +26,7 @@ import {RouterModule} from '@angular/router';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+import {NgbCollapseModule, NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     EditorModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbDropdownModule,
+    NgbCollapseModule
 
   ],
   providers: [],

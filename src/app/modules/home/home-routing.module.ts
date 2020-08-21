@@ -9,7 +9,6 @@ const homeRoutes: Routes = [
     path: '',
     component: HomeComponent,
     pathMatch: 'full',
-    data: {requiresLogin: true},
     canActivate: [AuthGuard]
   },
 ];

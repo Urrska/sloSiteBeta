@@ -1,6 +1,13 @@
 @import "../../../../assets/styles/variables.scss";
 
 .register-form-wrapper {
+  .validation-error-messages {
+    p {
+      color: #f69709;
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+  }
 
   .form-group {
     &:first-child {
@@ -27,7 +34,7 @@
     position: relative;
 
     input {
-     @include input-dark;
+      @include input-dark;
     }
 
     .faEye {

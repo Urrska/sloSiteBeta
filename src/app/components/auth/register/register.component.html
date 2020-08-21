@@ -1,5 +1,8 @@
-<div class="register-form-wrapper mt-5">
+<div class="register-form-wrapper mt-5" [ngStyle]="{'margin-top' : auth.errorMessages ? '1.5rem' : '3rem' }">
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="validation-error-messages">
+      <p class="mb-4">{{auth.errorMessages}}</p>
+    </div>
     <div class="form-group">
       <span><fa-icon [icon]="faEmail"></fa-icon></span>
       <label for="login-email">E-mail</label>

@@ -8,9 +8,6 @@
   </div>
 
   <div class="grammar-lesson-content">
-    <div class="d-flex align-items-center justify-content-center"
-         [innerHTML]="grammarLesson.grammarRichText | safeHtml">
-    </div>
-
+    <quill-view-html [content]="grammarLesson.grammarRichText"></quill-view-html>
   </div>
 </div>

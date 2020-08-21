@@ -9,14 +9,12 @@ const practiceRoutes: Routes = [
   {
     path: 'practice',
     component: PracticeComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard]
   },
   {
     // posamezna vaja
     path: 'practice/:id',
     component: PracticeSingleComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard]
   }
 ];

@@ -17,8 +17,9 @@
           <input type="text" class="form-control" id="grammarTitleEng" name="grammarTitleEng"
                  formControlName="grammarTitleEng">
         </div>
-        <div class="rich-text-wrapper">
-          <angular-editor formControlName="grammarRichText" [config]="editorConfig"></angular-editor>
+        <div class="rich-text-wrapper h-100">
+          <quill-editor formControlName="grammarRichText" placeholder="Start typing here"
+                        [styles]="editorStyles" [modules]="config"></quill-editor>
         </div>
       </div>
     </form>

@@ -1,59 +1,37 @@
+@import "../../../assets/styles/variables.scss";
+
 .exercise-content-wrapper {
   margin: 0 9rem;
 }
 
 .exercise-home-cards-wrapper {
-  .img-container {
-    position: relative;
-    width: 100%;
+  @include overlay-images;
 
-    .image {
-      opacity: 1;
-      display: block;
-      transition: 200ms ease-in-out;
-      max-height: 12rem;
-      width: auto;
-    }
+  img {
+    max-height: 12rem;
+  }
 
-    .category-name {
-      opacity: 0;
-      position: absolute;
-      top: 80%;
-      left: 6px;
-      background-color: #abd1c6;
-      color: #001e1d;
-      transition: 500ms;
-      padding: .5rem;
+  .image-title {
+    background-color: #abd1c6;
+    color: #001e1d;
+    padding: .5rem;
+  }
 
-      .overlay-text {
-        margin-left: .75rem;
-        margin-bottom: 0;
-        color: #001e1d;
-      }
+  .overlay-text, fa-icon {
+    opacity: 1;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+  }
 
-      .fa-icon {
-        text-align: center;
-        color: #001e1d;
-      }
-    }
+  .overlay-text {
+    margin-left: .75rem;
+    margin-bottom: 0;
+    color: #001e1d;
+  }
 
-    &:hover {
-      .category-name {
-        opacity: 1;
-      }
-      .image {
-        opacity: .8;
-        cursor: pointer;
-        transition: 200ms ease-in-out;
-      }
-
-      .overlay-text, fa-icon {
-        opacity: 1;
-        transition: 200ms ease-in-out;
-        cursor: pointer;
-      }
-
-    }
-
+  .fa-icon {
+    text-align: center;
+    color: #001e1d;
   }
 }
+

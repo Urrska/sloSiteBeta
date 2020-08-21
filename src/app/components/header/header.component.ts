@@ -11,17 +11,27 @@ export class HeaderComponent implements OnInit {
 
   faCollapsedMenu = faBars;
   isAdmin: boolean;
+  navbarOpen = false;
 
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
   }
 
   ngOnInit() {
     this.isUserAdmin();
   }
 
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
   isUserAdmin() {
+    // debugger;
     this.authService.user.subscribe(res => {
-      this.isAdmin = res.role.admin;
+      if (res) {
+        return this.isAdmin = res.role.admin;
+      } else {
+        return;
+      }
     });
   }
 

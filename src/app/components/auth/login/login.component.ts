@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   isPasswordShown = false;
 
   constructor(private fb: FormBuilder,
-              public authService: AuthService) {
+              public auth: AuthService) {
   }
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     const rawValues = this.loginForm.getRawValue();
     const email = rawValues.email;
     const password = rawValues.password;
-    this.authService.login(email, password);
+    this.auth.login(email, password);
   }
 
 }

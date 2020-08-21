@@ -7,7 +7,7 @@
              *ngFor="let gapfill of practiceGapfillCollection; let i = index"
              [routerLink]="['/practice/', gapfill.docId]">
           <img class="image" [src]="gapfill.image" [alt]="gapfill.title">
-          <div class="category-name d-flex">
+          <div class="image-title d-flex">
            <fa-icon [icon]="faEdit"></fa-icon>
             <h5 class="overlay-text">{{gapfill.title.toUpperCase()}}</h5>
           </div>

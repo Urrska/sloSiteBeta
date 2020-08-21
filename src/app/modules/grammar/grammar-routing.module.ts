@@ -9,13 +9,11 @@ const grammarRoutes: Routes = [
   {
     path: 'grammar',
     component: GrammarComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard]
   },
   {
     path: 'grammar/:lesson',
     component: GrammarLessonComponent,
-    data: {requiresLogin: true},
     canActivate: [AuthGuard]
   },
 ];

@@ -14,14 +14,12 @@ export class RegisterComponent implements OnInit {
   faPassword = faLock;
   faEye = faEye;
   faEyeCrossed = faEyeSlash;
-
   isPasswordShown = false;
-
   registerForm: FormGroup;
 
   constructor(private router: Router,
               private fb: FormBuilder,
-              public authService: AuthService) {
+              public auth: AuthService) {
   }
 
   ngOnInit() {
@@ -44,7 +42,7 @@ export class RegisterComponent implements OnInit {
       const rawValues = this.registerForm.getRawValue();
       const email = rawValues.email;
       const password = rawValues.password;
-      this.authService.register(email, password);
+      this.auth.register(email, password);
     } else {
       console.log('Something went wrong!');
     }
