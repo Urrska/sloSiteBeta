@@ -27,6 +27,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {NgbCollapseModule, NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import {AdjustInputStyleDirective} from './shared/directives/adjust-input-style.directive';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {NgbCollapseModule, NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
     ForgotPasswordComponent,
     LoginComponent,
     RegisterComponent,
+    AdjustInputStyleDirective
 
   ],
   imports: [

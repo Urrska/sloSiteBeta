@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PracticeGapfill} from '../../../core/models/practice-gapfill';
 import {NgxSmartModalService} from 'ngx-smart-modal';
 import {Router} from '@angular/router';
 import {DatabaseService} from '../../../core/services/database-service.service';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faLongArrowAltLeft, faPlus} from '@fortawesome/free-solid-svg-icons';
 import {faQuestion} from '@fortawesome/free-solid-svg-icons/faQuestion';
 
 @Component({
@@ -17,13 +17,15 @@ export class TemplateGapfillComponent implements OnInit {
   gapfillTemplateForm: FormGroup;
   faPlus = faPlus;
   faInstructions = faQuestion;
+  faLongArrow = faLongArrowAltLeft;
   formPreview: FormGroup;
   docPreview: PracticeGapfill;
 
   constructor(private fb: FormBuilder,
               private router: Router,
               private db: DatabaseService,
-              public smartModalService: NgxSmartModalService) {
+              public smartModalService: NgxSmartModalService,
+              private renderer: Renderer2) {
   }
 
   ngOnInit() {
@@ -55,13 +57,22 @@ export class TemplateGapfillComponent implements OnInit {
   }
 
   // enter
-  delimitInput(event, gapfill, j) {
+  delimitInput(event, gapfill, j, inputField) {
     // create new FG with appropriate (empty) values
     (gapfill as FormArray).insert(j + 1, this.fb.group({
       value: [null],
       type: [this.setDelimitedInputType(gapfill, j)],
       expectedValue: [null],
     }));
+
+    // change the appearance of the input based on the label/type of the input
+    inputField.labels.forEach(label => {
+      if (label.innerText === 'T') {
+        this.renderer.addClass(inputField, 'input-text');
+      } else if (label.innerText === 'B') {
+        this.renderer.addClass(inputField, 'input-blank');
+      }
+    });
 
     // change the placement of the cursor indicator
     setTimeout(() => {
@@ -70,7 +81,12 @@ export class TemplateGapfillComponent implements OnInit {
   }
 
   resizeInputLength(event) {
-    event.target.style.width = (event.target.value.length + 2) + 'ch';
+    if (event.target.value.length >= event.target.size) {
+      event.target.style.width = event.target.value.length + 'ch';
+    }
+
+    console.log(event.target.size);
+    console.log(event.target.value.length);
   }
 
   setDelimitedInputType(gapfill, index) {

@@ -1,7 +1,7 @@
 @import "../../../../assets/styles/variables.scss";
 
 .editor-wrapper {
-  padding: 2rem 10rem;
+  padding: 2rem 9rem;
 
   .badge {
     border-radius: 0;
@@ -9,11 +9,12 @@
     opacity: .8;
   }
   .sentencePartInput {
-    width: 5ch;
+    //width: 5ch;
   }
 
   input {
    @include input-light;
+    width: 20ch
   }
 
   h6 {
@@ -27,13 +28,19 @@
     cursor: pointer;
   }
 
-  .btn-reset, .btn-preview, , .btn-sentence {
+  .btn-navigator, .btn-reset, .btn-preview, .btn-sentence {
     @include button-outline;
   }
 
   .btn-save {
     @include button-default;
   }
-
 }
 
+.input-blank {
+  border: solid 1px #eeeeef !important;
+}
+
+.input-text {
+  border-style: none none dotted none !important;
+}

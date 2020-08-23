@@ -23,13 +23,13 @@ export class GrammarComponent implements OnInit, AfterViewInit {
     this.db.getCollectionData<GrammarLesson>('grammar')
       .subscribe(res => {
         this.grammarCollection = res;
-
       });
 
   }
 
   ngAfterViewInit() {
-    this.cardText.nativeElement.style.color = 'orange';
+
+
   }
 
 }

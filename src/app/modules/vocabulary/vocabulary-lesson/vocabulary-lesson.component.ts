@@ -35,7 +35,6 @@ export class VocabularyLessonComponent implements OnInit {
       .getVocabularyByCategory(categorySlug)
       .subscribe(vocabularyItems => {
         this.lessonsByCategory = vocabularyItems;
-        console.log(this.lessonsByCategory);
       });
   }
 

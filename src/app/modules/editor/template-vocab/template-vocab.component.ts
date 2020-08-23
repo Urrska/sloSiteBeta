@@ -29,7 +29,6 @@ export class TemplateVocabComponent implements OnInit {
     this.db.getCollectionData<VocabularyCategory>('vocab-category')
       .subscribe(res => {
         this.categories = res;
-        console.log(this.categories);
       });
   }
 

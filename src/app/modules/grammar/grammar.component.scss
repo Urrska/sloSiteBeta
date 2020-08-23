@@ -48,5 +48,9 @@
   .card-text {
     max-height: 9rem;
     overflow: hidden;
+
+    p {
+      color: orange !important;
+    }
   }
 }
