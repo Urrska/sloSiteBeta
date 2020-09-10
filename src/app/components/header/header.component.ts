@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
   }
 
   isUserAdmin() {
-    // debugger;
     this.authService.user.subscribe(res => {
       if (res) {
         return this.isAdmin = res.role.admin;

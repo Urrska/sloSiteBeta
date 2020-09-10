@@ -1,0 +1,83 @@
+<div class="account-container container-fluid h-100">
+  <div class="account-content-wrapper row h-100 justify-content-center align-items-center">
+    <div class="account-panel-wrapper col-3">
+      <h4 class="account-title d-flex">{{accountMode}}</h4>
+      <div class="account-form-wrapper" *ngIf="mode === modeEnum.Login || mode === modeEnum.Register"
+           [ngStyle]="{'margin-top' : auth.errorMessages ? '1.5rem' : '3rem' }">
+        <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+          <div class="validation-error-messages">
+            <p class="mb-4">{{auth.errorMessages}}</p>
+          </div>
+          <div class="form-group">
+            <fa-icon [icon]="faEmail"></fa-icon>
+            <label for="login-email">E-mail</label>
+            <div class="input-container">
+              <input type="email" class="form-control" id="login-email" formControlName="email">
+            </div>
+            <p *ngIf="accountForm.get('email').touched && !accountForm.get('email').valid" class="errorMessage">
+              The email you entered is not valid.</p>
+          </div>
+          <div class="form-group">
+            <fa-icon [icon]="faPassword"></fa-icon>
+            <label for="password">Password</label>
+            <div class="input-container d-flex">
+              <input [type]="isPasswordShown ? 'text' : 'password'" class="form-control" id="password"
+                     formControlName="password">
+              <fa-icon *ngIf="!isPasswordShown" class="faEye" [icon]="faEye" (click)="showPassword()"></fa-icon>
+              <fa-icon *ngIf="isPasswordShown" class="faEye" [icon]="faEyeCrossed" (click)="showPassword()"></fa-icon>
+            </div>
+            <p *ngIf="accountForm.get('password').touched && !accountForm.get('password').valid" class="errorMessage">
+              The password you entered is not valid.</p>
+          </div>
+          <div class="redirect-options d-flex flex-column align-items-end my-4" *ngIf="mode === modeEnum.Login">
+            <a class="btn-link mb-2" (click)="router.navigate(['/account/forgotten-password'])">Forgot Password?</a>
+            <a class="btn-link" (click)="router.navigate(['/account/register'])">Don't have an account yet?</a>
+          </div>
+          <div class="redirect-options d-flex justify-content-end my-4" *ngIf="mode === modeEnum.Register">
+            <a class="btn-link" (click)="router.navigate(['/account/login'])">Back to Login?</a>
+          </div>
+          <div class="confirmation-button-wrapper d-flex justify-content-center">
+            <button type="submit" class="btn w-100" [disabled]="!accountForm.valid">{{accountMode}}</button>
+          </div>
+        </form>
+      </div>
+
+
+      <div class="forgotten-password-wrapper" *ngIf="mode === modeEnum.ForgotPassword"
+           [ngStyle]="{'margin-top' : auth.errorMessages ? '1.5rem' : '3rem' }">
+        <div class="reset-password-content">
+          <div class="validation-error-messages">
+            <p class="mb-4">{{auth.errorMessages}}</p>
+          </div>
+          <div class="form-group mb-5" [ngStyle]="{'margin-top' : auth.errorMessages ? '1.5rem' : '3rem' }">
+            <label for="resetEmail">Please, enter your email address to request a new password.</label>
+            <input type="email" id="resetEmail" class="form-control mt-4" placeholder="Email Address" [(ngModel)]="resetEmail">
+          </div>
+        </div>
+
+        <div class="confirmation-buttons d-flex justify-content-between">
+          <button type="button" class="btn-redirect btn btn-outline-light" [routerLink]="['/account/login']">Go back to Log In</button>
+          <button type="submit" class="btn-reset btn btn-light" value="Reset Password" (click)="resetPassword(resetEmail)">Reset Password</button>
+        </div>
+      </div>
+
+      <div class="email-verification-wrapper container" *ngIf="mode === modeEnum.VerifyEmail">
+        <div class="email-verification-content">
+          <h3 class="mb-4">You've got mail!</h3>
+          <h6 class="mb-3">Hello, displayName.</h6>
+          <h6>Thanks for joining sloSite, happy to see you. Before you start using sloSite, check your inbox and verify your email address.</h6>
+          <button type="button" class="navigate-home-btn btn btn-warning w-25 mt-4" [routerLink]="['/']">Okay</button>
+        </div>
+
+        <div class="confirmation-buttons">
+          <h6 class="mt-4">In case you haven't received an email from sloSite, click the button below.</h6>
+          <button type="button" class="resend-btn btn btn-link pl-0" (click)="verifyEmail()">Send Again</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+

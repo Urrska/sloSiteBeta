@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DatabaseService} from '../../../core/services/database-service.service';
 import {NgxSmartModalService} from 'ngx-smart-modal';
 import {VocabularyCategory, VocabularyLesson} from '../../../core/models/vocab-lesson';
 import {faLongArrowAltLeft, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -11,8 +12,9 @@ import {faLongArrowAltLeft, faPlusSquare} from '@fortawesome/free-solid-svg-icon
   templateUrl: './template-vocab.component.html',
   styleUrls: ['./template-vocab.component.scss']
 })
-export class TemplateVocabComponent implements OnInit {
+export class TemplateVocabComponent implements OnInit, OnDestroy {
 
+  private subscription: Subscription;
   faPlus = faPlusSquare;
   faLongArrow = faLongArrowAltLeft;
   vocabForm: FormGroup;
@@ -26,7 +28,7 @@ export class TemplateVocabComponent implements OnInit {
   ngOnInit() {
     this.initializeVocabForm();
     this.initializeCategoryForm();
-    this.db.getCollectionData<VocabularyCategory>('vocab-category')
+    this.subscription = this.db.getCollectionData<VocabularyCategory>('vocab-category')
       .subscribe(res => {
         this.categories = res;
       });
@@ -126,6 +128,10 @@ export class TemplateVocabComponent implements OnInit {
       .replace(/\-\-+/g, '-') // Replace multiple - with single -
       .replace(/^-+/, '') // Trim - from start of text
       .replace(/-+$/, ''); // Trim - from end of text
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

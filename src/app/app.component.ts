@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
         map((e: NavigationEnd) => e.url)
       )
       .subscribe(() => {
-        if (window.location.href.includes('auth')) {
+        if (window.location.href.includes('account')) {
           return this.isNavigationShown = false;
         } else {
           return this.isNavigationShown = true;

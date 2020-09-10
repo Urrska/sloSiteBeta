@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {VocabularyLesson} from '../../../core/models/vocab-lesson';
 import {Subscription} from 'rxjs';
 
@@ -12,14 +12,15 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './vocabulary-lesson.component.html',
   styleUrls: ['./vocabulary-lesson.component.scss']
 })
-export class VocabularyLessonComponent implements OnInit {
+export class VocabularyLessonComponent implements OnInit, OnDestroy {
 
   faLongArrow = faLongArrowAltLeft;
   vocabularyEntriesSubscription: Subscription;
   lessonsByCategory: VocabularyLesson[] = [];
 
   constructor(private route: ActivatedRoute,
-              private db: DatabaseService) { }
+              private db: DatabaseService) {
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -36,6 +37,10 @@ export class VocabularyLessonComponent implements OnInit {
       .subscribe(vocabularyItems => {
         this.lessonsByCategory = vocabularyItems;
       });
+  }
+
+  ngOnDestroy() {
+    this.vocabularyEntriesSubscription.unsubscribe();
   }
 
 }

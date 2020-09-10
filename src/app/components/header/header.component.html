@@ -12,9 +12,7 @@
     <a class="nav-item nav-link" [routerLink]="['/practice']">Practice</a>
     <a class="nav-item nav-link" *ngIf="isAdmin" [routerLink]="['/editor']">Editor</a>
     <div class="login-register-wrapper ml-auto d-flex">
-      <a *ngIf="!isUserLoggedIn()" class="nav-item nav-link" [routerLink]="['/auth/login']">Log in /
-        Register
-      </a>
+      <a *ngIf="!isUserLoggedIn()" class="nav-item nav-link" [routerLink]="['/account/login']">Log in</a>
       <a *ngIf="isUserLoggedIn()" class="nav-item nav-link" (click)="logout()">Log Out</a>
     </div>
   </div>

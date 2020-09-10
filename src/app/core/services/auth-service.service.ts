@@ -46,8 +46,14 @@ export class AuthService {
   register(email, password) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(res => {
-        this.setUserData(res.user);
-        this.router.navigate(['/']);
+        this.setUserData(res.user).then(() => {
+          this.verifyEmail();
+          if (!res.user.emailVerified) {
+            this.router.navigate(['/']);
+          } else {
+            alert('Please verify your email address before navigating to sloSite.');
+          }
+        });
       })
       .catch(error => this.handleErrorMessages(error));
   }
@@ -62,14 +68,21 @@ export class AuthService {
 
   logout() {
     this.afAuth.signOut().then(() => {
-      this.router.navigate(['/auth/login']);
+      this.router.navigate(['/account/login']);
     });
+  }
+
+  verifyEmail() {
+    this.afAuth.user.subscribe(user => user.sendEmailVerification());
   }
 
   sendPasswordResetEmail(email) {
     this.afAuth.sendPasswordResetEmail(email)
-      .then(() => this.router.navigate(['/auth/login']))
-      .catch(error => console.log(error.message));
+      .then(() => {
+        alert('You\'ve got mail with instructions');
+        this.router.navigate(['/login']);
+      })
+      .catch(error => this.handleErrorMessages(error));
   }
 
   get isLoggedIn(): boolean {
@@ -77,22 +90,24 @@ export class AuthService {
   }
 
   handleErrorMessages(error) {
-    if (error.code === 'auth/email-already-exists') {
+    if (error.code === 'account/email-already-exists') {
       this.errorMessages = 'The provided email is already in use by an existing user.';
-    } else if (error.code === 'auth/internal-error') {
+    } else if (error.code === 'account/internal-error') {
       this.errorMessages = 'Something wen\'t wrong on our side and we\'re working on it. Thanks for the patience.';
-    } else if (error.code === 'auth/user-not-found') {
+    } else if (error.code === 'account/user-not-found') {
       this.errorMessages = 'We assume you\'re a first time visitor. Click the register button and register first.';
-    } else if (error.code === 'auth/maximum-user-count-exceeded') {
+    } else if (error.code === 'account/maximum-user-count-exceeded') {
       this.errorMessages = 'sloSite is at capacity and we\'re working on it. Thanks for the patience.';
-    } else if (error.code === 'auth/invalid-password') {
+    } else if (error.code === 'account/invalid-password') {
       this.errorMessages = 'The provided password is too short, it must have at least six characters.';
-    } else if (error.code === 'auth/invalid-last-sign-in-time') {
+    } else if (error.code === 'account/invalid-last-sign-in-time') {
       this.errorMessages = 'Your account has been deactivated due to inactivity. Feel free to register again.';
-    } else if (error.code === 'auth/invalid-email') {
-      this.errorMessages = 'The provided email is not really an email. Please check for typos.';
-    } else if (error.code === 'auth/invalid-email-verified') {
-      this.errorMessages = 'Please, verify your email before you continue to the website.';
+    } else if (error.code === 'account/invalid-email') {
+      this.errorMessages = 'The provided email is malformed. Please, check for typos.';
+    } else if (error.code === 'account/invalid-email-verified') {
+      this.errorMessages = 'Please, verify your email address before you continue to the website.';
+    } else {
+      this.errorMessages = 'Something wen\'t wrong. Please, check if your information is correct.';
     }
   }
 }

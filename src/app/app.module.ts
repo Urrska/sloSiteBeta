@@ -5,11 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AuthComponent } from './components/auth/auth.component';
-import { EmailVerificationComponent } from './components/auth/email-verification/email-verification.component';
-import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './components/auth/register/register.component';
+import { AccountComponent } from './components/account/account.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
@@ -34,11 +30,7 @@ import {AdjustInputStyleDirective} from './shared/directives/adjust-input-style.
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    AuthComponent,
-    EmailVerificationComponent,
-    ForgotPasswordComponent,
-    LoginComponent,
-    RegisterComponent,
+    AccountComponent,
     AdjustInputStyleDirective
 
   ],

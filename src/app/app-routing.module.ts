@@ -1,23 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {EmailVerificationComponent} from './components/auth/email-verification/email-verification.component';
-import {ForgotPasswordComponent} from './components/auth/forgot-password/forgot-password.component';
-import {RegisterComponent} from './components/auth/register/register.component';
-import {LoginComponent} from './components/auth/login/login.component';
-import {AuthComponent} from './components/auth/auth.component';
-import {AuthGuard} from './core/guard/auth.guard';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {AccountComponent} from './components/account/account.component';
 
 const routes: Routes = [
-  {
-    path: 'auth',
-    component: AuthComponent,
-    children: [
-      {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent},
-      {path: 'forgotten-password', component: ForgotPasswordComponent},
-      {path: 'email-verification', component: EmailVerificationComponent},
-    ]
-  },
+  {path: 'account',  component: AccountComponent},
+  {path: 'account/login', component: AccountComponent},
+  {path: 'account/register', component: AccountComponent},
+  {path: 'account/forgotten-password', component: AccountComponent},
+  {path: 'account/verify-email', component: AccountComponent},
   {path: '**', redirectTo: ''},
 ];
 
@@ -26,4 +16,5 @@ const routes: Routes = [
   exports: [RouterModule],
   // providers: [AuthGuard]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
