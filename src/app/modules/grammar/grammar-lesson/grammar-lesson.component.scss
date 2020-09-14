@@ -5,13 +5,17 @@
 
   .badge-wrapper {
     padding-left: 15px;
+
     h4 {
+      text-align: center;
       margin-bottom: 0;
       color: #abd1c6;
     }
 
     button {
       @include button-outline;
+      position: absolute;
+      right: 11rem;
     }
   }
 

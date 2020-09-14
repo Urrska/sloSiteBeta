@@ -31,15 +31,27 @@
       border: solid 1px white;
       opacity: .9;
       box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
-      font-family: Montserrat, sans-serif;
-      font-size: 14px;
       letter-spacing: 1px;
+      width: 100%;
 
       &::before {
         color: #abd1c6 !important;
       }
     }
   }
+}
+
+.ql-container {
+  display: flex;
+  justify-content: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+}
+
+
+
+.quill-view-html.ql-editor {
+  max-width: 60%;
 }
 
 

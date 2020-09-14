@@ -46,13 +46,10 @@ export class AuthService {
   register(email, password) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(res => {
+        debugger;
         this.setUserData(res.user).then(() => {
-          this.verifyEmail();
-          if (!res.user.emailVerified) {
-            this.router.navigate(['/']);
-          } else {
-            alert('Please verify your email address before navigating to sloSite.');
-          }
+          debugger;
+          this.router.navigate(['/']);
         });
       })
       .catch(error => this.handleErrorMessages(error));
@@ -70,10 +67,6 @@ export class AuthService {
     this.afAuth.signOut().then(() => {
       this.router.navigate(['/account/login']);
     });
-  }
-
-  verifyEmail() {
-    this.afAuth.user.subscribe(user => user.sendEmailVerification());
   }
 
   sendPasswordResetEmail(email) {

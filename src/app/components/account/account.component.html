@@ -61,21 +61,6 @@
         </div>
       </div>
 
-      <div class="email-verification-wrapper container" *ngIf="mode === modeEnum.VerifyEmail">
-        <div class="email-verification-content">
-          <h3 class="mb-4">You've got mail!</h3>
-          <h6 class="mb-3">Hello, displayName.</h6>
-          <h6>Thanks for joining sloSite, happy to see you. Before you start using sloSite, check your inbox and verify your email address.</h6>
-          <button type="button" class="navigate-home-btn btn btn-warning w-25 mt-4" [routerLink]="['/']">Okay</button>
-        </div>
-
-        <div class="confirmation-buttons">
-          <h6 class="mt-4">In case you haven't received an email from sloSite, click the button below.</h6>
-          <button type="button" class="resend-btn btn btn-link pl-0" (click)="verifyEmail()">Send Again</button>
-        </div>
-      </div>
-
-
     </div>
   </div>
 </div>

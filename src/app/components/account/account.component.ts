@@ -36,8 +36,6 @@ export class AccountComponent implements OnInit {
       this.mode = AccountMode.Register;
     } else if (this.router.url.includes('forgotten-password')) {
       this.mode = AccountMode.ForgotPassword;
-    } else if (this.router.url.includes('verify-email')) {
-      this.mode = AccountMode.VerifyEmail;
     }
   }
 
@@ -48,8 +46,6 @@ export class AccountComponent implements OnInit {
       return 'Register';
     } else if (this.mode === AccountMode.ForgotPassword) {
       return 'Reset Password';
-    } else if (this.mode === AccountMode.VerifyEmail) {
-      return 'Verify Email';
     }
   }
 
@@ -66,10 +62,6 @@ export class AccountComponent implements OnInit {
 
   resetPassword(resetEmail) {
     this.auth.sendPasswordResetEmail(resetEmail);
-  }
-
-  verifyEmail() {
-    this.auth.verifyEmail();
   }
 
   onSubmit() {
@@ -90,6 +82,5 @@ export class AccountComponent implements OnInit {
 export enum AccountMode {
   Login,
   Register,
-  ForgotPassword,
-  VerifyEmail
+  ForgotPassword
 }

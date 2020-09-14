@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   cardData: CardData[] = cardData;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 
