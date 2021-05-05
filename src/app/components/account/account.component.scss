@@ -7,12 +7,12 @@
 
   .account-panel-wrapper {
     min-width: 26rem;
-    background-color: white;
+    background-color: #fff;
     padding: 2rem 4rem 2rem;
-    opacity: .9;
+    opacity: 0.9;
 
     .account-title {
-      color: #004643;
+      color: $color-green-dark;
     }
 
     .account-form-wrapper {
@@ -22,18 +22,18 @@
         }
 
         fa-icon {
-          color: #004643;
-          margin-right: .5rem;
+          color: $color-green-dark;
+          margin-right: 0.5rem;
         }
 
         label {
-          color: #004643;
+          color: $color-green-dark;
         }
 
         .errorMessage {
-          color: #f69709;
+          color: $color-orange-dark;
           margin-top: 0.5rem;
-          font-size: 0.7rem;
+          font-size: 0.9rem;
         }
       }
 
@@ -48,7 +48,7 @@
           position: absolute;
           right: 0;
           font-size: 1.5rem;
-          color: #abd1c6;
+          color: $color-green-light;
           animation: ease-in-out;
 
           &:hover {
@@ -59,9 +59,9 @@
 
       .redirect-options {
         .btn-link {
-          font-size: .9rem;
+          font-size: 0.9rem;
           text-decoration: none;
-          color: #004643;
+          color: $color-green-dark;
           cursor: pointer;
 
           &:hover {
@@ -80,8 +80,9 @@
 
     .forgotten-password-wrapper {
       .reset-password-content {
-        h3, label {
-          color: #001e1d;
+        h3,
+        label {
+          color: $color-offblack;
         }
 
         input {
@@ -101,14 +102,13 @@
         }
       }
     }
-
   }
 }
 
 .validation-error-messages {
   p {
-    color: #f69709;
-    font-size: .9rem;
-    line-height: 1.5;
+    color: $color-orange-dark;
+    font-size: 1rem;
+    // line-height: 1.5;
   }
 }

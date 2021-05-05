@@ -1,3 +1,5 @@
+@import "../../../assets/styles/variables.scss";
+
 .grammar-content-wrapper {
   margin: 4rem 9rem 0 9rem;
 
@@ -6,7 +8,7 @@
     border-radius: 0;
     border: 0;
     width: 30rem;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: $box-shadow-fancy;
 
     fa-icon {
       opacity: 0;
@@ -14,7 +16,7 @@
       top: 3%;
       left: 28px;
       font-size: 2rem;
-      color: #f9bc60;
+      color: $color-yellow;
     }
 
     &:hover {
@@ -33,15 +35,15 @@
       }
 
       &:first-child {
-        background-color: #001e1d;
-        color: #abd1c6;
+        background-color: $color-offblack;
+        color: $color-green-light;
         border-radius: 0;
         border: 1px solid;
       }
     }
 
     .card-body {
-      background-color: #abd1c6;
+      background-color: $color-green-light;
     }
   }
 
@@ -50,7 +52,7 @@
     overflow: hidden;
 
     p {
-      color: orange !important;
+      color: $color-yellow !important;
     }
   }
 }

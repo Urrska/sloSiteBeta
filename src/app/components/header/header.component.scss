@@ -1,47 +1,70 @@
+@import "../../../assets/styles/variables.scss";
+
 nav {
-  padding: 0 9rem;
+  padding: 0 10rem;
+  letter-spacing: 1px;
+
+  @include respond(big-desktop) {
+    padding: 0 15rem;
+  }
+  @include respond(tab-land) {
+    padding: 0 3rem;
+  }
+  @include respond(phone) {
+    padding: 0 1.5rem;
+  }
 
   .navbar-toggler {
-    background-color: #fffffe;
-
-    &:hover {
-      background-color: #abd1c6;
+    padding: 0;
+    &:focus {
+      outline: none;
+      border: none;
     }
 
     fa-icon {
-      color: #004643;
-      font-size: 1.5rem;
+      color: $color-offwhite;
+      font-size: 2rem;
+      transition: all linear 0.2s;
+
+      &:hover {
+        color: $color-green-light;
+      }
     }
   }
 }
 
 .navbar-brand {
-  font: bold 32px 'Montserrat';
+  font: bold 2rem "Montserrat";
   cursor: pointer;
-  color: #fffffe;
+  color: $color-offwhite;
   margin-bottom: 0;
+  transition: all linear 0.2s;
 
   &:hover {
-    color: #abd1c6;
+    color: $color-green-light;
     cursor: pointer;
   }
 }
 
 .nav-link {
-  padding-left: 0;
-  padding-right: 2rem;
-  &:hover {
+  padding: 0;
+  margin-right: 1rem;
+  font-size: 0.9rem;
+  transition: all linear 0.2s;
 
+  &:hover {
     cursor: pointer;
-    color: #abd1c6;
+    color: $color-green-light;
+    font-weight: 600;
   }
 
-  &:focus {
-    outline: 0;
-    color: #abd1c6;
+  @include respond(tab-land) {
+    &:not(:nth-of-type(-2)) {
+      margin-bottom: 0.75rem;
+      margin-right: 0;
+    }
   }
 }
-
 
 .login-register-wrapper {
   a {
@@ -49,8 +72,8 @@ nav {
   }
 }
 
-
-
-
-
-
+.navbar-collapse.show {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

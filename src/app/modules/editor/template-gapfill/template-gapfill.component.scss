@@ -5,30 +5,30 @@
 
   .badge {
     border-radius: 0;
-    color: #001e1d;
-    opacity: .8;
-  }
-  .sentencePartInput {
-    //width: 5ch;
+    color: $color-offblack;
+    opacity: 0.8;
   }
 
   input {
-   @include input-light;
-    width: 20ch
+    @include input-light;
+    width: 20ch;
   }
 
   h6 {
-    color: #abd1c6;
+    color: $color-green-light;
     margin-bottom: 0;
   }
 
   .icon-instructions {
     font-size: 1.75rem;
-    color: #f9bc60;
+    color: $color-yellow;
     cursor: pointer;
   }
 
-  .btn-navigator, .btn-reset, .btn-preview, .btn-sentence {
+  .btn-navigator,
+  .btn-reset,
+  .btn-preview,
+  .btn-sentence {
     @include button-outline;
   }
 

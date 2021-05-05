@@ -1,9 +1,33 @@
 @import "../../../assets/styles/variables.scss";
 
 .vocab-content-wrapper {
-  margin: 0 8rem;
+  margin: 0 9rem;
+
+  @include respond(big-desktop) {
+    margin: 0 14rem;
+  }
+
+  @include respond(tab-land) {
+    margin: 0 2rem;
+  }
+  @include respond(phone) {
+    margin: 0;
+  }
 
   .vocab-home-cards-wrapper {
     @include overlay-images;
+
+    .img-container {
+      display: flex;
+    }
+    .img-wrapper {
+      justify-content: center;
+      display: flex;
+    }
+
+    .image {
+      max-width: 16rem;
+      height: auto;
+    }
   }
 }

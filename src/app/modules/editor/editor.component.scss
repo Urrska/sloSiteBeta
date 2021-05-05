@@ -1,3 +1,5 @@
+@import "../../../assets/styles/variables.scss";
+
 .editor-content-wrapper {
   margin: 0 9rem;
 
@@ -13,7 +15,7 @@
       color: #001e1d;
 
       &:hover {
-        background-color: #abd1c6;
+        background-color: $color-green-light;
         cursor: pointer;
       }
     }

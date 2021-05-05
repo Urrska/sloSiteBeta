@@ -16,16 +16,16 @@
   }
 
   h4 {
-    color: #001e1d;
+    color: $color-offblack;
   }
 
   .form-wrapper {
     .add-category-content-wrapper {
       label {
-        color: #001e1d;
+        color: $color-offblack;
       }
       .form-control {
-       @include input-dark;
+        @include input-dark;
       }
     }
     .confirmation-btns-wrapper {

@@ -1,5 +1,5 @@
 .router-outlet {
-  height: 100vh;
+  max-height: 100vh;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {

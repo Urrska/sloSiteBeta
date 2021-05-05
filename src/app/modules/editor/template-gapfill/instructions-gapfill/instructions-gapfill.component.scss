@@ -1,11 +1,13 @@
+@import "../../../../../assets/styles/variables.scss";
+
 .instructions-gapfill-wrapper {
   h6 {
-    color: #001e1d;
-    line-height: 1.5;
+    color: $color-offblack;
+    // line-height: 1.5;
   }
 
   h4 {
-    color: #001e1d;
+    color: $color-offblack;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
   }

@@ -4,7 +4,7 @@
   }
 
   .ng-select-container {
-    color: #fffffe;
+    color: $color-offwhite;
     background-color: transparent;
     min-height: 36px;
     align-items: center;
@@ -13,7 +13,7 @@
     box-shadow: none !important;
 
     .ng-arrow {
-      border-color: #abd1c6 transparent transparent !important;
+      border-color: $color-green-light transparent transparent !important;
     }
 
     .ng-value-container {
@@ -22,27 +22,26 @@
       }
 
       .ng-placeholder {
-        color: #abd1c6 !important;
-        font-size: 13px !important;
+        color: $color-green-light !important;
+        font-size: 1.4rem !important;
       }
     }
   }
 
   .ng-clear-wrapper {
-    color: #abd1c6 !important;
+    color: $color-green-light !important;
   }
 
   .ng-dropdown-panel {
     border-radius: 0;
 
     .ng-option {
-      color: #001e1d;
+      color: $color-offblack;
     }
 
     .ng-option-marked {
-      background-color: #abd1c6 !important;
-      color: #001e1d;
+      background-color: $color-green-light !important;
+      color: $color-offblack;
     }
   }
 }
-

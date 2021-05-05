@@ -1,14 +1,44 @@
+@import "../../../assets/styles/variables.scss";
+
 .footer-wrapper {
-  background-color: #00665e;
+  background-color: transparent;
   padding: 0 10rem;
+
+  @include respond(big-desktop) {
+    padding: 0 15rem;
+  }
+
+  @include respond(tab-land) {
+    padding: 0 3rem;
+  }
+
+  @include respond(phone) {
+    padding: 0 1.5rem;
+  }
 
   fa-icon {
     font-size: 1.5rem;
-    margin-right: .75rem;
+    margin-right: 0.75rem;
+    cursor: pointer;
+
+    @include respond(phone) {
+      margin-right: 0;
+    }
+
+    &:hover,
+    :focus {
+      outline: 0;
+      color: $color-green-light;
+    }
   }
 
-  a {
+  .footer-text {
     letter-spacing: 2px;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+
+    @include respond(phone) {
+      display: none;
+    }
   }
 }
-

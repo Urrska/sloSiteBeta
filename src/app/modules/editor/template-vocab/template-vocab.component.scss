@@ -16,7 +16,7 @@
 
         .category-selector-wrapper {
           ng-select {
-            border: #fffffe 1px;
+            border: $color-offwhite 1px;
             border-style: none none solid none;
             border-radius: 0;
             background-color: transparent !important;
@@ -25,11 +25,11 @@
 
           .fa-plus {
             font-size: 2.25rem;
-            color: #fffffe;
+            color: $color-offwhite;
             cursor: pointer;
 
             &:hover {
-              color: #abd1c6;
+              color: $color-green-light;
             }
           }
         }
@@ -51,13 +51,13 @@
         thead {
           th {
             border-bottom: 1px solid rgba(255, 255, 254, .3);
-            color: #abd1c6;
+            color: $color-green-light;
           }
         }
 
         tbody {
           th {
-            color: #abd1c6;
+            color: $color-green-light;
           }
         }
       }

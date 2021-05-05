@@ -2,22 +2,32 @@
   <div class="container-fluid home-content-wrapper">
     <div class="hero-text-wrapper d-flex align-items-center flex-column">
       <h1 class="mb-4">Welcome!</h1>
-      <h5>sloSite is a learning hub for all who would like to begin, rediscover or just wander the journey of Slovene language.
-        sloSite pairs Slovene with English to describe and explain the inner workings of this lovely language and is completely free to use.
-        Pick a category and have fun!
-      </h5>
+      <h2 class="hero-text-description">
+        sloSite is a learning hub for all who would like to begin, rediscover or
+        just wander the journey of Slovene language. sloSite pairs Slovene with
+        English to describe and explain the inner workings of this lovely
+        language and is completely free to use. Pick a category and have fun!
+      </h2>
     </div>
 
     <div *ngFor="let card of cardData">
-      <div class="category-description d-flex justify-content-between align-items-center row">
-        <div class="col-xl-4 col-xs-12 d-flex img-container">
-          <img class="img-fluid" [src]="card.image" [alt]="card.imageTitle">
-          <p class="image-title">{{card.imageTitle.toUpperCase()}}</p>
+      <div
+        class="category d-flex justify-content-center align-items-center row"
+      >
+        <div class="img-container col-xl-4 col-xs-12 d-flex mb-4">
+          <figure class="img-wrapper">
+            <img class="img-fluid" [src]="card.image" [alt]="card.imageTitle" />
+            <figcaption class="overlay-text">
+              {{ card.imageTitle.toUpperCase() }}
+            </figcaption>
+          </figure>
         </div>
-        <div class="col-xl-8 col-xs-12">
-          <h5 class=" category-title mt-4">{{card.title.toUpperCase()}}</h5>
-          <h5>{{card.description}}</h5>
-          <button class="btn btn-default mt-4" [routerLink]="['/', card.title]">Go {{card.title.toLowerCase()}}</button>
+        <div class="category-description col-xl-6 col-xs-12">
+          <h3 class="card-title">{{ card.title.toUpperCase() }}</h3>
+          <h4 class="card-description">{{ card.description }}</h4>
+          <button class="btn btn-default mt-2" [routerLink]="['/', card.title]">
+            Go {{ card.title.toLowerCase() }}
+          </button>
         </div>
       </div>
     </div>

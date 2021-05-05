@@ -10,7 +10,6 @@
   }
 }
 
-
 .preview-gapfill {
   justify-content: center;
 
@@ -23,14 +22,13 @@
     .nsm-content {
       width: 100%;
       padding: 3rem 2rem;
-      background-color: #004643;
+      background-color: $color-green-dark;
 
       .nsm-dialog-btn-close {
-        color: #fffffe;
+        color: $color-offwhite;
         font-size: 2rem;
-        margin-right: .5rem;
+        margin-right: 0.5rem;
       }
     }
   }
-
 }

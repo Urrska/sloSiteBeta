@@ -1,19 +1,31 @@
-<nav class="navbar navbar-expand-lg mt-2">
+<nav class="navbar navbar-expand-lg mt-2 align-items-center">
   <a class="navbar-brand mr-5" [routerLink]="['/home']">sloSite</a>
 
   <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-    <span class="navbar-toggler-icon d-flex align-items-center justify-content-center"><fa-icon [icon]="faCollapsedMenu"></fa-icon></span>
+    <span
+      class="navbar-toggler-icon d-flex align-items-center justify-content-center"
+      ><fa-icon [icon]="faCollapsedMenu"></fa-icon
+    ></span>
   </button>
 
-  <div class="collapse navbar-collapse w-100" [ngClass]="{ 'show': navbarOpen }">
+  <div class="collapse navbar-collapse w-100" [ngClass]="{ show: navbarOpen }">
     <a class="nav-item nav-link" [routerLink]="['/home']">Home</a>
     <a class="nav-item nav-link" [routerLink]="['/vocabulary']">Vocabulary</a>
     <a class="nav-item nav-link" [routerLink]="['/grammar']">Grammar</a>
     <a class="nav-item nav-link" [routerLink]="['/practice']">Practice</a>
-    <a class="nav-item nav-link" *ngIf="isAdmin" [routerLink]="['/editor']">Editor</a>
+    <a class="nav-item nav-link" *ngIf="isAdmin" [routerLink]="['/editor']"
+      >Editor</a
+    >
     <div class="login-register-wrapper ml-auto d-flex">
-      <a *ngIf="!isUserLoggedIn()" class="nav-item nav-link" [routerLink]="['/account/login']">Log in</a>
-      <a *ngIf="isUserLoggedIn()" class="nav-item nav-link" (click)="logout()">Log Out</a>
+      <a
+        *ngIf="!isUserLoggedIn()"
+        class="nav-item nav-link"
+        [routerLink]="['/account/login']"
+        >Log in</a
+      >
+      <a *ngIf="isUserLoggedIn()" class="nav-item nav-link" (click)="logout()"
+        >Log Out</a
+      >
     </div>
   </div>
 </nav>

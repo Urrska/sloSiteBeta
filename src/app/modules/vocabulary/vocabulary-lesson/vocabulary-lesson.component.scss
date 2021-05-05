@@ -1,99 +1,87 @@
 @import "../../../../assets/styles/variables.scss";
 
 .vocab-lesson-wrapper {
-  padding: 1rem 9rem;
+  padding: 1rem 10rem;
+
+  @include respond(big-desktop) {
+    padding: 1rem 15rem;
+  }
+
+  @include respond(tab-land) {
+    padding: 1rem 3rem;
+  }
+  @include respond(phone) {
+    padding: 1rem;
+  }
 
   .badge-wrapper {
-    button {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+
+    .btn-outline-light {
       @include button-outline;
     }
 
-    h4 {
+    .badge-title {
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #abd1c6;
+      color: $color-green-light;
       margin-bottom: 0;
       border: solid 1px;
-      padding: .5rem;
+      padding: 0.5rem;
+      font-size: 1.5rem;
+
+      @include respond(phone) {
+        margin-bottom: 1rem;
+      }
     }
   }
+}
 
-  .vocab-lesson-content {
+.vocab-lesson-content {
+  @include overlay-images;
 
-    .img-container {
-      position: relative;
-      width: 100%;
+  .img {
+    max-width: 100%;
+    height: auto;
+    min-width: 18rem;
+  }
 
-      img {
-        opacity: 1;
-        display: block;
-        transition: 200ms ease-in-out;
-        max-height: 12rem;
-        width: auto;
+  .vocab-img-text {
+    color: $color-green-light;
+  }
+
+  table {
+    th,
+    td {
+      border-top: none;
+      width: 13rem;
+      color: $color-offwhite;
+      font-size: 0.75rem;
+    }
+
+    thead {
+      th {
+        border-bottom: 1px solid rgba(255, 255, 254, 0.3);
+        color: $color-green-light;
+        font-weight: 500;
       }
-
-      .overlay-text {
-        transition: 500ms;
-        opacity: 0;
-        position: absolute;
-        top: 69%;
-        left: 0;
-        text-align: left;
-        cursor: none;
-      }
-
-      &:hover {
-        img {
-          opacity: .8;
-          cursor: pointer;
-          transition: 500ms;
-        }
-
-        .overlay-text {
-          opacity: 1;
-          transition: 500ms;
-          cursor: pointer;
-          background-color: #abd1c6;
-          color: #001e1d;
-          padding: .5rem;
+      #table-case {
+        @include respond(phone) {
+          display: none;
         }
       }
     }
 
-    .vocab-img {
-      width: 20rem;
-      height: auto;
-    }
+    tbody {
+      th {
+        color: $color-green-light;
+        font-weight: 500;
 
-    .vocab-img-text {
-      color: #abd1c6;
-    }
-
-    table {
-      //width: 70%;
-      //min-width: 70%;
-
-      th, td {
-        border-top: none;
-        width: 13rem;
-        color: #fffffe;
-      }
-
-      thead {
-        th {
-          border-bottom: 1px solid rgba(255, 255, 254, .3);
-          color: #abd1c6;
-          font-weight: 500;
-        }
-      }
-
-      tbody {
-        th {
-          color: #abd1c6;
-          font-weight: 500;
+        @include respond(phone) {
+          display: none;
         }
       }
     }
-
   }
 }

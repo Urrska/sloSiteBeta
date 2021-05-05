@@ -1,20 +1,50 @@
 @import "../../../assets/styles/variables.scss";
 
 .home-content-wrapper {
-  padding: 0 9rem;
+  padding: 0 10rem;
+
+  @include respond(big-desktop) {
+    padding: 0 15rem;
+  }
+
+  @include respond(tab-land) {
+    padding: 0 3rem;
+  }
+  @include respond(phone) {
+    padding: 0 1.5rem;
+  }
 
   .hero-text-wrapper {
-    margin: 6rem 0;
+    margin: 4rem 0 6rem 0;
 
-    h5 {
+    .hero-text-description {
       text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      max-width: 70%;
+
+      @include respond(phone) {
+        max-width: 100%;
+      }
     }
   }
 
-  .category-description {
+  .category {
     @include overlay-images;
-    .category-title {
-      color: #abd1c6;
+    .card-title {
+      color: $color-green-light;
+      font-size: 1.25rem;
+    }
+
+    &-description {
+      @include respond(laptop) {
+        text-align: center;
+      }
+    }
+
+    .card-description {
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     &:not(last-child) {
@@ -26,9 +56,3 @@
     }
   }
 }
-
-h5 {
-  line-height: 1.5;
-}
-
-

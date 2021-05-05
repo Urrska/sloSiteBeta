@@ -32,7 +32,6 @@ import {AdjustInputStyleDirective} from './shared/directives/adjust-input-style.
     HeaderComponent,
     AccountComponent,
     AdjustInputStyleDirective
-
   ],
   imports: [
     BrowserModule,
@@ -55,7 +54,6 @@ import {AdjustInputStyleDirective} from './shared/directives/adjust-input-style.
     AppRoutingModule,
     NgbDropdownModule,
     NgbCollapseModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
