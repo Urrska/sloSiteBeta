@@ -1,7 +1,19 @@
 @import "../../../assets/styles/variables.scss";
 
 .editor-content-wrapper {
-  margin: 0 9rem;
+  padding: 3rem 10rem;
+  height: $wrapper-height;
+
+  @include respond(big-desktop) {
+    padding: 3rem 15rem;
+  }
+
+  @include respond(tab-land) {
+    padding: 3rem;
+  }
+  @include respond(phone) {
+    padding: 3rem;
+  }
 
   .template-choice-wrapper {
     border-block-start-width: initial;
@@ -12,7 +24,7 @@
     }
 
     button:not(:disabled) {
-      color: #001e1d;
+      color: $color-offblack;
 
       &:hover {
         background-color: $color-green-light;
@@ -20,4 +32,8 @@
       }
     }
   }
+}
+
+.nav-tabs {
+  border: none;
 }

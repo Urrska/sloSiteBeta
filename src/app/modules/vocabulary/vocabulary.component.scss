@@ -2,6 +2,7 @@
 
 .vocab-content-wrapper {
   margin: 0 9rem;
+  height: $wrapper-height;
 
   @include respond(big-desktop) {
     margin: 0 14rem;
@@ -16,18 +17,5 @@
 
   .vocab-home-cards-wrapper {
     @include overlay-images;
-
-    .img-container {
-      display: flex;
-    }
-    .img-wrapper {
-      justify-content: center;
-      display: flex;
-    }
-
-    .image {
-      max-width: 16rem;
-      height: auto;
-    }
   }
 }

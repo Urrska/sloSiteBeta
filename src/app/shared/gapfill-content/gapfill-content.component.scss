@@ -1,15 +1,19 @@
 @import "../../../assets/styles/variables.scss";
 
-.gapfill-content-wrapper, .preview-gapfill {
+.gapfill-content-wrapper,
+.preview-gapfill {
   input {
     @include input-light;
     width: 5ch;
   }
 
   .practice-wrapper {
+    font-size: 0.9rem;
+    letter-spacing: 0.75px;
+    font-weight: 400;
     .sentence-row {
       .sentence-id {
-        width: .75rem;
+        width: 0.75rem;
       }
     }
     .buttons-wrapper {
@@ -17,7 +21,8 @@
         @include button-outline;
       }
 
-      .btn-check, .btn-solutions {
+      .btn-check,
+      .btn-solutions {
         @include button-default;
       }
     }
@@ -30,7 +35,7 @@
       height: 30px;
 
       .sentence-id {
-        width: .75rem;
+        width: 0.75rem;
       }
     }
   }
@@ -56,7 +61,6 @@
       color: #abd1c6;
     }
   }
-
 }
 
 .errorInputValue {

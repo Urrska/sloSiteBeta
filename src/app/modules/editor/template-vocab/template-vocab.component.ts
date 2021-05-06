@@ -1,35 +1,39 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {DatabaseService} from '../../../core/services/database-service.service';
-import {NgxSmartModalService} from 'ngx-smart-modal';
-import {VocabularyCategory, VocabularyLesson} from '../../../core/models/vocab-lesson';
-import {faLongArrowAltLeft, faPlusSquare} from '@fortawesome/free-solid-svg-icons';
-import {Subscription} from 'rxjs';
-
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { DatabaseService } from "../../../core/services/database-service.service";
+import { NgxSmartModalService } from "ngx-smart-modal";
+import {
+  VocabularyCategory,
+  VocabularyLesson,
+} from "../../../core/models/vocab-lesson";
+import { faLongArrowAltLeft, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-template-vocab',
-  templateUrl: './template-vocab.component.html',
-  styleUrls: ['./template-vocab.component.scss']
+  selector: "app-template-vocab",
+  templateUrl: "./template-vocab.component.html",
+  styleUrls: ["./template-vocab.component.scss"],
 })
 export class TemplateVocabComponent implements OnInit, OnDestroy {
-
   private subscription: Subscription;
-  faPlus = faPlusSquare;
+  faPlus = faPlus;
   faLongArrow = faLongArrowAltLeft;
   vocabForm: FormGroup;
   categoryForm: FormGroup;
   categories = [];
 
-  constructor(private fb: FormBuilder,
-              private db: DatabaseService,
-              public smartModalService: NgxSmartModalService) { }
+  constructor(
+    private fb: FormBuilder,
+    private db: DatabaseService,
+    public smartModalService: NgxSmartModalService
+  ) {}
 
   ngOnInit() {
     this.initializeVocabForm();
     this.initializeCategoryForm();
-    this.subscription = this.db.getCollectionData<VocabularyCategory>('vocab-category')
-      .subscribe(res => {
+    this.subscription = this.db
+      .getCollectionData<VocabularyCategory>("vocab-category")
+      .subscribe((res) => {
         this.categories = res;
       });
   }
@@ -46,34 +50,34 @@ export class TemplateVocabComponent implements OnInit, OnDestroy {
         declensionNominative: this.fb.group({
           nom1: [null, Validators.required],
           nom2: [null, Validators.required],
-          nom3: [null, Validators.required]
+          nom3: [null, Validators.required],
         }),
         declensionGenitive: this.fb.group({
           gen1: [null, Validators.required],
           gen2: [null, Validators.required],
-          gen3: [null, Validators.required]
+          gen3: [null, Validators.required],
         }),
         declensionDative: this.fb.group({
           dat1: [null, Validators.required],
           dat2: [null, Validators.required],
-          dat3: [null, Validators.required]
+          dat3: [null, Validators.required],
         }),
         declensionAccusative: this.fb.group({
           acc1: [null, Validators.required],
           acc2: [null, Validators.required],
-          acc3: [null, Validators.required]
+          acc3: [null, Validators.required],
         }),
         declensionLocative: this.fb.group({
           loc1: [null, Validators.required],
           loc2: [null, Validators.required],
-          loc3: [null, Validators.required]
+          loc3: [null, Validators.required],
         }),
         declensionInstrumental: this.fb.group({
           inst1: [null, Validators.required],
           inst2: [null, Validators.required],
-          inst3: [null, Validators.required]
-        })
-      })
+          inst3: [null, Validators.required],
+        }),
+      }),
     });
   }
 
@@ -83,7 +87,7 @@ export class TemplateVocabComponent implements OnInit, OnDestroy {
       categorySlo: [null, Validators.required],
       // slug se zgenerira smaodejno na podlagi category
       slug: [null, Validators.required],
-      thumbImage: [null, Validators.required]
+      thumbImage: [null, Validators.required],
     });
   }
 
@@ -98,7 +102,7 @@ export class TemplateVocabComponent implements OnInit, OnDestroy {
     rawValues.categorySlo = rawValues.categorySlo.toLowerCase();
     this.db.addNewCategory<VocabularyCategory>(rawValues).then(() => {
       this.categoryForm.reset();
-      this.smartModalService.close('add-category');
+      this.smartModalService.close("add-category");
     });
   }
 
@@ -112,26 +116,31 @@ export class TemplateVocabComponent implements OnInit, OnDestroy {
     rawValues.categorySlo = this.categories[0].categorySlo;
     rawValues.categorySlug = this.slugify(rawValues.categoryEng);
     // ne sme navigirati na VocabLesson Page
-    this.db.addDocumentToCollection<VocabularyLesson>('vocabulary', rawValues).then(() => this.onReset());
+    this.db
+      .addDocumentToCollection<VocabularyLesson>("vocabulary", rawValues)
+      .then(() => this.onReset());
   }
 
   slugify(str) {
-    const from = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;';
-    const to = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------';
-    const p = new RegExp(from.split('').join('|'), 'g');
+    const from =
+      "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;";
+    const to =
+      "aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------";
+    const p = new RegExp(from.split("").join("|"), "g");
 
-    return str.toString().toLowerCase()
-      .replace(/\s+/g, '-') // Replace spaces with -
-      .replace(p, c => to.charAt(from.indexOf(c))) // Replace special characters
-      .replace(/&/g, '-and-') // Replace & with 'and'
-      .replace(/[^\w\-]+/g, '') // Remove all non-word characters
-      .replace(/\-\-+/g, '-') // Replace multiple - with single -
-      .replace(/^-+/, '') // Trim - from start of text
-      .replace(/-+$/, ''); // Trim - from end of text
+    return str
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, "-") // Replace spaces with -
+      .replace(p, (c) => to.charAt(from.indexOf(c))) // Replace special characters
+      .replace(/&/g, "-and-") // Replace & with 'and'
+      .replace(/[^\w\-]+/g, "") // Remove all non-word characters
+      .replace(/\-\-+/g, "-") // Replace multiple - with single -
+      .replace(/^-+/, "") // Trim - from start of text
+      .replace(/-+$/, ""); // Trim - from end of text
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

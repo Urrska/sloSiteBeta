@@ -6,134 +6,307 @@
           <div class="form-group form-inline d-flex justify-content-between">
             <div class="d-flex">
               <label for="headwordEng" class="mr-4">English word</label>
-              <input type="text" class="form-control" id="headwordEng" name="headwordEng"
-                     formControlName="headwordEng">
+              <input
+                type="text"
+                class="form-control"
+                id="headwordEng"
+                name="headwordEng"
+                formControlName="headwordEng"
+              />
             </div>
-            <button class="btn-navigator btn btn-outline-light" type="button" [routerLink]="['/editor']">
+            <button
+              class="btn-navigator btn btn-outline-light"
+              type="button"
+              [routerLink]="['/editor']"
+            >
               <fa-icon [icon]="faLongArrow"></fa-icon> Back to the list
             </button>
           </div>
           <div class="form-group form-inline d-flex">
             <label for="headwordSlo" class="mr-4">Slovenian word</label>
-            <input type="text" class="form-control" id="headwordSlo" name="headwordSlo"
-                   formControlName="headwordSlo">
+            <input
+              type="text"
+              class="form-control"
+              id="headwordSlo"
+              name="headwordSlo"
+              formControlName="headwordSlo"
+            />
           </div>
           <div class="form-group form-inline d-flex mb-4">
-            <label for="external-url-input" class="mr-4">Upload an image (URL)</label>
-            <input type="text" class="form-control" id="external-url-input"
-                   name="external-url-input" formControlName="image">
+            <label for="external-url-input" class="mr-4"
+              >Upload an image (URL)</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="external-url-input"
+              name="external-url-input"
+              formControlName="image"
+            />
           </div>
           <div class="category-selector-wrapper form-inline">
             <label for="categoryEng" class="mr-4">Pick a category</label>
-            <ng-select placeholder="Izberite" id="categoryEng" [items]="categories"
-                       bindLabel="categoryEng"
-                       [formControl]="categoryForm.get('categoryEng')">
+            <ng-select
+              placeholder="Izberite"
+              id="categoryEng"
+              [items]="categories"
+              bindLabel="categoryEng"
+              [formControl]="categoryForm.get('categoryEng')"
+            >
             </ng-select>
-            <p class="ml-4">Or add a new category</p>
-            <fa-icon class="fa-plus mx-4" [icon]="faPlus" (click)="smartModalService.open('add-category')"></fa-icon>
-
+            <p class="ml-4 mb-0">Or add a new category</p>
+            <fa-icon
+              class="fa-plus mx-4"
+              [icon]="faPlus"
+              (click)="smartModalService.open('add-category')"
+            ></fa-icon>
           </div>
         </div>
       </div>
 
-      <div class="editor-table-wrapper d-flex row mt-5" formGroupName="declensionTable">
+      <div
+        class="editor-table-wrapper d-flex row mt-5"
+        formGroupName="declensionTable"
+      >
         <div class="col w-100">
           <div class="form-group d-flex">
             <table class="table table-hover">
               <thead>
-              <tr>
-                <th scope="col">Case</th>
-                <th scope="col">Singular</th>
-                <th scope="col">Dual</th>
-                <th scope="col">Plural</th>
-              </tr>
+                <tr>
+                  <th scope="col">Case</th>
+                  <th scope="col">Singular</th>
+                  <th scope="col">Dual</th>
+                  <th scope="col">Plural</th>
+                </tr>
               </thead>
               <tbody>
-              <tr formGroupName="declensionNominative">
-                <th scope="row">Nominative</th>
-                <td><input type="text" class="form-control" formControlName="nom1"></td>
-                <td><input type="text" class="form-control" formControlName="nom2"></td>
-                <td><input type="text" class="form-control" formControlName="nom3"></td>
-              </tr>
-              <tr formGroupName="declensionGenitive">
-                <th scope="row">Genitive</th>
-                <td><input type="text" class="form-control" formControlName="gen1"></td>
-                <td><input type="text" class="form-control" formControlName="gen2"></td>
-                <td><input type="text" class="form-control" formControlName="gen3"></td>
-              </tr>
-              <tr formGroupName="declensionDative">
-                <th scope="row">Dative</th>
-                <td><input type="text" class="form-control" formControlName="dat1"></td>
-                <td><input type="text" class="form-control" formControlName="dat2"></td>
-                <td><input type="text" class="form-control" formControlName="dat3"></td>
-              </tr>
-              <tr formGroupName="declensionAccusative">
-                <th scope="row">Accusativ</th>
-                <td><input type="text" class="form-control" formControlName="acc1"></td>
-                <td><input type="text" class="form-control" formControlName="acc2"></td>
-                <td><input type="text" class="form-control" formControlName="acc3"></td>
-              </tr>
-              <tr formGroupName="declensionLocative">
-                <th scope="row">Locative</th>
-                <td><input type="text" class="form-control" formControlName="loc1"></td>
-                <td><input type="text" class="form-control" formControlName="loc2"></td>
-                <td><input type="text" class="form-control" formControlName="loc3"></td>
-              </tr>
-              <tr formGroupName="declensionInstrumental">
-                <th scope="row">Instrumental</th>
-                <td><input type="text" class="form-control" formControlName="inst1"></td>
-                <td><input type="text" class="form-control" formControlName="inst2"></td>
-                <td><input type="text" class="form-control" formControlName="inst3"></td>
-              </tr>
+                <tr formGroupName="declensionNominative">
+                  <th scope="row">Nominative</th>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="nom1"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="nom2"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="nom3"
+                    />
+                  </td>
+                </tr>
+                <tr formGroupName="declensionGenitive">
+                  <th scope="row">Genitive</th>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="gen1"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="gen2"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="gen3"
+                    />
+                  </td>
+                </tr>
+                <tr formGroupName="declensionDative">
+                  <th scope="row">Dative</th>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="dat1"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="dat2"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="dat3"
+                    />
+                  </td>
+                </tr>
+                <tr formGroupName="declensionAccusative">
+                  <th scope="row">Accusativ</th>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="acc1"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="acc2"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="acc3"
+                    />
+                  </td>
+                </tr>
+                <tr formGroupName="declensionLocative">
+                  <th scope="row">Locative</th>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="loc1"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="loc2"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="loc3"
+                    />
+                  </td>
+                </tr>
+                <tr formGroupName="declensionInstrumental">
+                  <th scope="row">Instrumental</th>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="inst1"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="inst2"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="inst3"
+                    />
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-
     </form>
 
     <div class="confirmation-btns-wrapper d-flex justify-content-end py-4">
-      <button class="btn-reset btn btn-outline-dark mr-3" type="button" (click)="onReset()">Reset</button>
-      <button class="btn-save btn btn-dark" type="submit" (click)="onSubmit()">Save</button>
+      <button
+        class="btn-reset btn btn-outline-dark mr-3"
+        type="button"
+        (click)="onReset()"
+      >
+        Reset
+      </button>
+      <button class="btn-save btn btn-dark" type="submit" (click)="onSubmit()">
+        Save
+      </button>
     </div>
-
   </div>
-
 </div>
 
-
-<ngx-smart-modal #addCategory identifier="add-category" class="add-category" customClass="nsm-centered">
+<ngx-smart-modal
+  #addCategory
+  identifier="add-category"
+  class="add-category"
+  customClass="nsm-centered"
+>
   <div class="add-category-wrapper container">
-    <h4>New category</h4>
+    <h1 class="add-category-title">New category</h1>
     <div class="form-wrapper">
       <form [formGroup]="categoryForm" (ngSubmit)="onSubmitCategory()">
         <div class="d-flex row">
           <div class="add-category-content-wrapper col w-100 pb-3">
             <div class="form-group form-inline d-flex pl-2">
-              <label for="categoryEngInput" class="mr-4">English category name</label>
-              <input type="text" class="form-control" id="categoryEngInput" name="categoryEngInput"
-                     formControlName="categoryEng">
+              <label for="categoryEngInput" class="mr-4"
+                >English category name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="categoryEngInput"
+                name="categoryEngInput"
+                formControlName="categoryEng"
+              />
             </div>
             <div class="form-group form-inline d-flex pl-2">
-              <label for="categorySlo" class="mr-4">Slovenian category name</label>
-              <input type="text" class="form-control" id="categorySlo" name="categoryEng"
-                     formControlName="categorySlo">
+              <label for="categorySlo" class="mr-4"
+                >Slovenian category name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="categorySlo"
+                name="categoryEng"
+                formControlName="categorySlo"
+              />
             </div>
             <div class="form-group form-inline d-flex pl-2 mb-4">
-              <label for="thumb-image-url" class="mr-4">URL to your image</label>
-              <input type="text" class="form-control" id="thumb-image-url"
-                     name="thumb-image-url" formControlName="thumbImage">
+              <label for="thumb-image-url" class="mr-4"
+                >URL to your image</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="thumb-image-url"
+                name="thumb-image-url"
+                formControlName="thumbImage"
+              />
             </div>
           </div>
         </div>
         <div class="confirmation-btns-wrapper d-flex justify-content-end">
-          <button class="btn-reset btn btn-outline-dark mr-3" type="button" (click)="onResetCategory()">Reset</button>
+          <button
+            class="btn-reset btn btn-outline-dark mr-3"
+            type="button"
+            (click)="onResetCategory()"
+          >
+            Reset
+          </button>
           <button class="btn-save btn btn-dark" type="submit">Save</button>
         </div>
       </form>
     </div>
   </div>
 </ngx-smart-modal>
-
-

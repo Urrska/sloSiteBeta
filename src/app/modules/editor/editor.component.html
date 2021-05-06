@@ -1,25 +1,51 @@
 <div class="d-flex h-100">
   <div class="container-fluid editor-content-wrapper">
-
-    <div class="editor-intro-wrapper pt-5 d-flex align-items-baseline flex-wrap">
-      <h6 class="mb-0 mr-5 mb-5">Choose a template you want to edit:</h6>
+    <div class="editor-intro-wrapper d-flex align-items-baseline flex-wrap">
+      <p class="mb-0 mr-2">Choose a template you want to edit:</p>
 
       <div class="template-choice-wrapper ml-0 mt-0">
         <ul class="nav nav-tabs">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/editor/vocabulary']">Vocabulary</a>
+            <a class="nav-link" [routerLink]="['/editor/vocabulary']"
+              >Vocabulary</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/editor/grammar']">Grammar</a>
           </li>
           <li>
             <div ngbDropdown class="d-inline-block">
-              <a class="nav-link" id="dropdownExercises" ngbDropdownToggle>Exercises</a>
+              <a class="nav-link" id="dropdownExercises" ngbDropdownToggle
+                >Exercises</a
+              >
               <div ngbDropdownMenu aria-labelledby="dropdownExercises">
-                <button ngbDropdownItem [routerLink]="['/editor/practice-gapfill']">Gapfill</button>
-                <button ngbDropdownItem disabled [routerLink]="['/editor/practice-multiple-choice']">Multiple Choice</button>
-                <button ngbDropdownItem disabled [routerLink]="['/editor/practice-word-order']">Word order</button>
-                <button ngbDropdownItem disabled [routerLink]="['/editor/practice-input-answer']">Input answer</button>
+                <button
+                  ngbDropdownItem
+                  [routerLink]="['/editor/practice-gapfill']"
+                >
+                  Gapfill
+                </button>
+                <button
+                  ngbDropdownItem
+                  disabled
+                  [routerLink]="['/editor/practice-multiple-choice']"
+                >
+                  Multiple Choice
+                </button>
+                <button
+                  ngbDropdownItem
+                  disabled
+                  [routerLink]="['/editor/practice-word-order']"
+                >
+                  Word order
+                </button>
+                <button
+                  ngbDropdownItem
+                  disabled
+                  [routerLink]="['/editor/practice-input-answer']"
+                >
+                  Input answer
+                </button>
               </div>
             </div>
           </li>

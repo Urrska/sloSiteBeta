@@ -15,17 +15,23 @@
     }
   }
 
-  h4 {
+  .add-category-title {
+    padding-left: 0.4rem;
+    font-size: 1.5rem;
     color: $color-offblack;
+    margin-bottom: 0;
   }
 
   .form-wrapper {
+    margin-top: 2rem;
     .add-category-content-wrapper {
+      font-size: 0.9rem;
       label {
         color: $color-offblack;
       }
       .form-control {
         @include input-dark;
+        font-size: 0.9rem;
       }
     }
     .confirmation-btns-wrapper {
@@ -38,4 +44,9 @@
       }
     }
   }
+}
+
+.nsm-dialog-btn-close {
+  margin-top: 1.25rem;
+  margin-right: 1.25rem;
 }

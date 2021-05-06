@@ -1,22 +1,40 @@
 @import "../../../../assets/styles/variables.scss";
 
 .gapfil-wrapper {
-  padding: 2rem 10rem;
+  padding: 3rem 10rem;
+  height: $wrapper-height;
+
+  @include respond(big-desktop) {
+    padding: 3rem 15rem;
+  }
+  @include respond(tab-land) {
+    padding: 3rem;
+  }
+  @include respond(phone) {
+    padding: 3rem 1.5rem;
+  }
 
   .badge-wrapper {
-    h4 {
-      color: #abd1c6;
+    @include respond(phone) {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 1rem;
+      justify-content: center !important;
+      align-items: center;
+    }
+    .practice-title {
+      color: $color-green-light;
       text-transform: uppercase;
       margin-bottom: 0;
+      font-size: 1.5rem;
+      @include respond(phone) {
+        flex-basis: 100%;
+        text-align: center;
+      }
     }
 
     button {
       @include button-outline;
     }
   }
-
 }
-
-
-
-

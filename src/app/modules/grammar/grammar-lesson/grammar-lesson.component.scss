@@ -3,24 +3,41 @@
 .grammar-lesson-wrapper {
   padding: 2rem 10rem;
 
-  .badge-wrapper {
-    padding-left: 15px;
+  @include respond(big-desktop) {
+    padding: 2rem 15rem;
+  }
+  @include respond(tab-land) {
+    padding: 2rem 3rem;
+  }
+  @include respond(phone) {
+    padding: 2rem 1.5rem;
+  }
 
-    h4 {
-      text-align: center;
+  .badge-wrapper {
+    @include respond(phone) {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 1rem;
+      justify-content: center !important;
+      align-items: center;
+    }
+    .grammar-lesson-title {
+      font-size: 1.5rem;
       margin-bottom: 0;
-      color: #abd1c6;
+      color: $color-green-light;
+      @include respond(phone) {
+        flex-basis: 100%;
+        text-align: center;
+      }
     }
 
     button {
       @include button-outline;
-      position: absolute;
-      right: 11rem;
     }
   }
 
   .grammar-lesson-content {
-    font-family: 'Montserrat', sans-serif;
-    color: #fffffe;
+    font-family: "Montserrat", sans-serif;
+    color: $color-offwhite;
   }
 }

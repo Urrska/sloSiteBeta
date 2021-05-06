@@ -18,6 +18,8 @@ $gradient-bg: linear-gradient(
   rgba(89, 143, 127, 1) 100%
 );
 
+$wrapper-height: calc(100vh - 8.8rem);
+
 ////////////////////
 // mixins
 
@@ -47,14 +49,15 @@ $gradient-bg: linear-gradient(
   background-color: $color-yellow;
   color: $color-offblack;
   font-weight: 600;
+  font-size: 0.9rem;
   border-radius: 0;
-  border: solid 3px transparent;
+  border: solid 1px transparent;
   transition: all linear 0.4s;
 
   &:hover {
     background-color: transparent;
     color: $color-yellow !important;
-    border: 3px solid $color-yellow !important;
+    border: 1px solid $color-yellow !important;
   }
 
   &:focus {
@@ -70,6 +73,10 @@ $gradient-bg: linear-gradient(
   background-color: transparent;
   color: $color-offwhite;
   transition: all linear 0.2s;
+  padding: 0 0 0 0.25rem;
+  height: auto;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
 
   &:focus {
     outline: none;
@@ -84,6 +91,7 @@ $gradient-bg: linear-gradient(
   background-color: transparent;
   color: $color-offblack;
   transition: all linear 0.2s;
+  font-size: 0.9rem;
 
   &:focus {
     outline: none;
@@ -109,12 +117,14 @@ $gradient-bg: linear-gradient(
       position: relative;
     }
 
-    img {
+    .image {
       opacity: 1;
       display: block;
       transition: all linear 0.2s;
-      max-height: 18rem;
-      width: auto;
+      max-width: 25rem;
+      height: auto;
+      width: 100%;
+      min-width: 17rem;
     }
 
     .overlay-text {
@@ -130,7 +140,7 @@ $gradient-bg: linear-gradient(
     }
 
     &:hover {
-      img {
+      .image {
         opacity: 0.8;
         cursor: pointer;
       }

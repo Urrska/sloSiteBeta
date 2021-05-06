@@ -1,37 +1,20 @@
 @import "../../../assets/styles/variables.scss";
 
 .exercise-content-wrapper {
-  margin: 0 9rem;
+  padding: 3rem 10rem;
+  height: $wrapper-height;
+
+  @include respond(big-desktop) {
+    padding: 3rem 15rem;
+  }
+  @include respond(tab-land) {
+    padding: 3rem;
+  }
+  @include respond(phone) {
+    padding: 3rem 1.5rem;
+  }
 }
 
 .exercise-home-cards-wrapper {
   @include overlay-images;
-
-  img {
-    max-height: 12rem;
-  }
-
-  .image-title {
-    background-color: #abd1c6;
-    color: #001e1d;
-    padding: .5rem;
-  }
-
-  .overlay-text, fa-icon {
-    opacity: 1;
-    transition: 200ms ease-in-out;
-    cursor: pointer;
-  }
-
-  .overlay-text {
-    margin-left: .75rem;
-    margin-bottom: 0;
-    color: #001e1d;
-  }
-
-  .fa-icon {
-    text-align: center;
-    color: #001e1d;
-  }
 }
-

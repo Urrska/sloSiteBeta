@@ -4,7 +4,7 @@
       padding: 0.5rem;
       background-color: $color-green-light;
       border: 1px solid #fff;
-      font: 100 1rem/17px "Montserrat", sans-serif;
+      font: 100 1rem/17px "Montserrat", monospace;
       box-shadow: $box-shadow;
 
       &:focus {
@@ -43,11 +43,14 @@
 
 .ql-container {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1rem;
+  margin-top: 2rem;
 }
 
-.quill-view-html.ql-editor {
-  max-width: 60%;
+quill-view-html .ql-editor {
+  @include respond(big-desktop) {
+    max-width: 70%;
+  }
 }

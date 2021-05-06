@@ -3,7 +3,22 @@
 .editor-wrapper {
   padding: 2rem 10rem;
 
+  height: $wrapper-height;
+
+  @include respond(big-desktop) {
+    padding: 3rem 15rem;
+  }
+
+  @include respond(tab-land) {
+    padding: 3rem;
+  }
+  @include respond(phone) {
+    padding: 1.5rem;
+  }
+
   .form-wrapper {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
     .form-control {
       @include input-light;
     }
@@ -24,8 +39,9 @@
           }
 
           .fa-plus {
-            font-size: 2.25rem;
+            font-size: 1.5rem;
             color: $color-offwhite;
+            opacity: 0.7;
             cursor: pointer;
 
             &:hover {
@@ -38,7 +54,8 @@
 
     .editor-table-wrapper {
       table {
-        th, td {
+        th,
+        td {
           border-top: none;
           width: 13rem;
           font-weight: 500;
@@ -50,7 +67,7 @@
 
         thead {
           th {
-            border-bottom: 1px solid rgba(255, 255, 254, .3);
+            border-bottom: 1px solid rgba(255, 255, 254, 0.3);
             color: $color-green-light;
           }
         }
@@ -74,4 +91,3 @@
     }
   }
 }
-
