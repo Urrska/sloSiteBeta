@@ -1,7 +1,17 @@
 @import "../../../../assets/styles/variables.scss";
 
 .editor-wrapper {
-  padding: 2rem 9rem;
+  .instructions-wrapper {
+    @include respond(tab-port) {
+      flex-direction: column-reverse;
+      row-gap: 2rem;
+      align-items: flex-start !important;
+    }
+  }
+
+  .gapfill-sentence-wrapper {
+    column-gap: 1.5rem;
+  }
 
   .badge {
     border-radius: 0;
@@ -11,16 +21,18 @@
 
   input {
     @include input-light;
-    width: 20ch;
+    // width: 20ch;
   }
 
-  h6 {
-    color: $color-green-light;
+  p,
+  label {
+    color: $color-offwhite;
     margin-bottom: 0;
+    font-size: 0.9rem;
   }
 
   .icon-instructions {
-    font-size: 1.75rem;
+    font-size: 1rem;
     color: $color-yellow;
     cursor: pointer;
   }
@@ -38,7 +50,7 @@
 }
 
 .input-blank {
-  border: solid 1px #eeeeef !important;
+  border: solid 1px $color-offwhite !important;
 }
 
 .input-text {

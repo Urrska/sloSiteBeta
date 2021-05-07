@@ -4,7 +4,7 @@
       <div class="editor-img-text-wrapper d-flex row">
         <div class="col w-100">
           <div class="form-group form-inline d-flex justify-content-between">
-            <div class="d-flex">
+            <div class="input-wrapper-1 d-flex flex-wrap">
               <label for="headwordEng" class="mr-4">English word</label>
               <input
                 type="text"
@@ -49,12 +49,13 @@
             <ng-select
               placeholder="Izberite"
               id="categoryEng"
+              class="mr-3"
               [items]="categories"
               bindLabel="categoryEng"
               [formControl]="categoryForm.get('categoryEng')"
             >
             </ng-select>
-            <p class="ml-4 mb-0">Or add a new category</p>
+            <p class="mb-0">Or add a new category</p>
             <fa-icon
               class="fa-plus mx-4"
               [icon]="faPlus"
@@ -73,7 +74,7 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Case</th>
+                  <th id="table-case" scope="col">Case</th>
                   <th scope="col">Singular</th>
                   <th scope="col">Dual</th>
                   <th scope="col">Plural</th>

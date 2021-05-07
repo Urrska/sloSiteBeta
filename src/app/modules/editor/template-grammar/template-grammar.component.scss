@@ -1,28 +1,28 @@
 @import "../../../../assets/styles/variables.scss";
 
-.editor-wrapper {
-  padding: 2rem 10rem;
-
-  .form-content-wrapper {
-    .form-control {
-      @include input-light;
+.form-content-wrapper {
+  .form-group:first-of-type {
+    @include respond(tab-port) {
+      flex-direction: column-reverse;
+      row-gap: 2rem;
+      align-items: flex-start;
     }
   }
-
-  .btn-navigator {
-    @include button-outline;
-  }
-
-  .confirmation-btns-wrapper {
-    .btn-reset {
-      @include button-outline;
-    }
-
-    .btn-save {
-      @include button-default;
-    }
+  .form-control {
+    @include input-light;
   }
 }
 
+.btn-navigator {
+  @include button-outline;
+}
 
+.confirmation-btns-wrapper {
+  .btn-reset {
+    @include button-outline;
+  }
 
+  .btn-save {
+    @include button-default;
+  }
+}

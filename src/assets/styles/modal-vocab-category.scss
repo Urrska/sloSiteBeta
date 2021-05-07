@@ -7,11 +7,21 @@
 
     .nsm-body {
       padding: 1.5rem 1.5rem 0 1.5rem;
+
+      @include respond(phone) {
+        padding: 0;
+      }
     }
 
     .nsm-content {
       padding: 2rem 1rem;
       border-radius: 0;
+
+      @include respond(phone) {
+        padding: 2rem 0;
+        margin: 0;
+        height: 100vh;
+      }
     }
   }
 
@@ -49,4 +59,8 @@
 .nsm-dialog-btn-close {
   margin-top: 1.25rem;
   margin-right: 1.25rem;
+
+  @include respond(phone) {
+    margin-top: 1.5rem;
+  }
 }

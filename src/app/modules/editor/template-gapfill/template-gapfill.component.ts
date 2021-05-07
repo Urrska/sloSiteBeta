@@ -1,19 +1,18 @@
-import {Component, OnInit, Renderer2} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {PracticeGapfill} from '../../../core/models/practice-gapfill';
-import {NgxSmartModalService} from 'ngx-smart-modal';
-import {Router} from '@angular/router';
-import {DatabaseService} from '../../../core/services/database-service.service';
-import {faLongArrowAltLeft, faPlus} from '@fortawesome/free-solid-svg-icons';
-import {faQuestion} from '@fortawesome/free-solid-svg-icons/faQuestion';
+import { Component, OnInit, Renderer2 } from "@angular/core";
+import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { PracticeGapfill } from "../../../core/models/practice-gapfill";
+import { NgxSmartModalService } from "ngx-smart-modal";
+import { Router } from "@angular/router";
+import { DatabaseService } from "../../../core/services/database-service.service";
+import { faLongArrowAltLeft, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faQuestion } from "@fortawesome/free-solid-svg-icons/faQuestion";
 
 @Component({
-  selector: 'app-template-gapfill',
-  templateUrl: './template-gapfill.component.html',
-  styleUrls: ['./template-gapfill.component.scss']
+  selector: "app-template-gapfill",
+  templateUrl: "./template-gapfill.component.html",
+  styleUrls: ["./template-gapfill.component.scss"],
 })
 export class TemplateGapfillComponent implements OnInit {
-
   gapfillTemplateForm: FormGroup;
   faPlus = faPlus;
   faInstructions = faQuestion;
@@ -21,12 +20,13 @@ export class TemplateGapfillComponent implements OnInit {
   formPreview: FormGroup;
   docPreview: PracticeGapfill;
 
-  constructor(private fb: FormBuilder,
-              private router: Router,
-              private db: DatabaseService,
-              public smartModalService: NgxSmartModalService,
-              private renderer: Renderer2) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private db: DatabaseService,
+    public smartModalService: NgxSmartModalService,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit() {
     this.initializeForm();
@@ -41,15 +41,15 @@ export class TemplateGapfillComponent implements OnInit {
           this.fb.group({
             value: [null],
             expectedValue: [null],
-            type: ['T']
-          })
-        ])
-      ])
+            type: ["T"],
+          }),
+        ]),
+      ]),
     });
   }
 
   getGapfillControls() {
-    return (this.gapfillTemplateForm.get('gapfills') as FormArray).controls;
+    return (this.gapfillTemplateForm.get("gapfills") as FormArray).controls;
   }
 
   getSentenceControls(gapfill) {
@@ -59,18 +59,21 @@ export class TemplateGapfillComponent implements OnInit {
   // enter
   delimitInput(event, gapfill, j, inputField) {
     // create new FG with appropriate (empty) values
-    (gapfill as FormArray).insert(j + 1, this.fb.group({
-      value: [null],
-      type: [this.setDelimitedInputType(gapfill, j)],
-      expectedValue: [null],
-    }));
+    (gapfill as FormArray).insert(
+      j + 1,
+      this.fb.group({
+        value: [null],
+        type: [this.setDelimitedInputType(gapfill, j)],
+        expectedValue: [null],
+      })
+    );
 
     // change the appearance of the input based on the label/type of the input
-    inputField.labels.forEach(label => {
-      if (label.innerText === 'T') {
-        this.renderer.addClass(inputField, 'input-text');
-      } else if (label.innerText === 'B') {
-        this.renderer.addClass(inputField, 'input-blank');
+    inputField.labels.forEach((label) => {
+      if (label.innerText === "T") {
+        this.renderer.addClass(inputField, "input-text");
+      } else if (label.innerText === "B") {
+        this.renderer.addClass(inputField, "input-blank");
       }
     });
 
@@ -82,7 +85,7 @@ export class TemplateGapfillComponent implements OnInit {
 
   resizeInputLength(event) {
     if (event.target.value.length >= event.target.size) {
-      event.target.style.width = event.target.value.length + 'ch';
+      event.target.style.width = event.target.value.length + "ch";
     }
 
     console.log(event.target.size);
@@ -91,19 +94,19 @@ export class TemplateGapfillComponent implements OnInit {
 
   setDelimitedInputType(gapfill, index) {
     const controls = ((gapfill as FormArray).at(index) as FormGroup).controls;
-    return controls.type.value === 'T' ? 'B' : 'T';
+    return controls.type.value === "T" ? "B" : "T";
   }
 
   // ctrl + enter - switches the value of the input
   toggleInputType(gapfill, j) {
     const controls = ((gapfill as FormArray).at(j) as FormGroup).controls;
-    if (controls.type.value === 'T') {
-      controls.type.setValue('B');
+    if (controls.type.value === "T") {
+      controls.type.setValue("B");
       controls.expectedValue.setValue(controls.value.value);
       controls.value.setValue(null);
       return controls.type.value.toUpperCase();
     } else {
-      controls.type.setValue('T');
+      controls.type.setValue("T");
       controls.value.setValue(controls.expectedValue.value);
       controls.expectedValue.setValue(null);
       return controls.type.value.toUpperCase();
@@ -117,17 +120,19 @@ export class TemplateGapfillComponent implements OnInit {
 
   toggleControlName(gapfill, j): string {
     const controls = ((gapfill as FormArray).at(j) as FormGroup).controls;
-    return controls.type.value === 'B' ? 'expectedValue' : 'value';
+    return controls.type.value === "B" ? "expectedValue" : "value";
   }
 
   generateNewLine(event) {
-    (this.gapfillTemplateForm.get('gapfills') as FormArray).push(this.fb.array([
-      this.fb.group({
-        value: [null],
-        type: ['T'],
-        expectedValue: [null]
-      })
-    ]));
+    (this.gapfillTemplateForm.get("gapfills") as FormArray).push(
+      this.fb.array([
+        this.fb.group({
+          value: [null],
+          type: ["T"],
+          expectedValue: [null],
+        }),
+      ])
+    );
   }
 
   onSubmit() {
@@ -135,15 +140,21 @@ export class TemplateGapfillComponent implements OnInit {
     const gapfillPractice = {
       title: rawValues.title,
       image: rawValues.image,
-      gapfills: rawValues.gapfills.map(sentence => ({sentence}))
+      gapfills: rawValues.gapfills.map((sentence) => ({ sentence })),
     };
-    this.db.addDocumentToCollection<PracticeGapfill[]>('practice-gapfill', gapfillPractice).then(res => {
-      this.router.navigate([`/practice/${res.id}`]);
-    });
+    this.db
+      .addDocumentToCollection<PracticeGapfill[]>(
+        "practice-gapfill",
+        gapfillPractice
+      )
+      .then((res) => {
+        this.router.navigate([`/practice/${res.id}`]);
+      });
   }
 
   onReset() {
-    this.gapfillTemplateForm.reset();
+    (this.gapfillTemplateForm.get("gapfills") as FormArray).clear();
+    this.initializeForm();
   }
 
   openModal() {
@@ -151,26 +162,29 @@ export class TemplateGapfillComponent implements OnInit {
     this.docPreview = new PracticeGapfill({
       title: rawValues.title,
       image: rawValues.image,
-      gapfills: rawValues.gapfills.map(sentence => ({sentence}))
+      gapfills: rawValues.gapfills.map((sentence) => ({ sentence })),
     });
 
     this.formPreview = this.fb.group({
       gapfills: this.fb.array(
-        this.docPreview.gapfills.map(gaps => this.fb.array(
-          gaps.sentence
-            .map(sentencePart => {
-              if (sentencePart.type === 'B') {
-                return this.fb.control
-                (null, [Validators.required, Validators.pattern(`(?:^|\W)${sentencePart.expectedValue}(?:$|\W)`)]);
+        this.docPreview.gapfills.map((gaps) =>
+          this.fb.array(
+            gaps.sentence.map((sentencePart) => {
+              if (sentencePart.type === "B") {
+                return this.fb.control(null, [
+                  Validators.required,
+                  Validators.pattern(
+                    `(?:^|\W)${sentencePart.expectedValue}(?:$|\W)`
+                  ),
+                ]);
               } else {
                 return this.fb.control(sentencePart.value);
               }
             })
           )
         )
-      )
+      ),
     });
-    this.smartModalService.open('preview-gapfill');
+    this.smartModalService.open("preview-gapfill");
   }
 }
-

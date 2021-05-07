@@ -1,68 +1,136 @@
-<div class="editor-wrapper container-fluid mt-5">
+<div class="editor-wrapper container-fluid">
   <div class="editor-content-wrapper d-flex row">
     <div class="editor-form-wrapper col">
       <form [formGroup]="gapfillTemplateForm">
-        <div class="title-input-wrapper mb-4 form-inline flex-column align-items-start">
-          <div class="instructions-wrapper d-flex w-100 justify-content-between align-items-center mb-4">
-          <div class="d-flex align-items-center">
-            <h6>Create your own gapfill exercise.</h6>
-            <fa-icon class="icon-instructions ml-4" [icon]="faInstructions"
-                     (click)="smartModalService.open('instructions-gapfill')"></fa-icon>
-          </div>
-            <button class="btn-navigator btn btn-outline-light mr-4" type="button" [routerLink]="['/editor']">
+        <div
+          class="title-input-wrapper mb-4 form-inline flex-column align-items-start"
+        >
+          <div
+            class="instructions-wrapper d-flex w-100 justify-content-between align-items-center mb-4"
+          >
+            <div class="d-flex align-items-center">
+              <p>Create your own gapfill exercise.</p>
+              <fa-icon
+                class="icon-instructions ml-2"
+                [icon]="faInstructions"
+                (click)="smartModalService.open('instructions-gapfill')"
+              ></fa-icon>
+            </div>
+            <button
+              class="btn-navigator btn btn-outline-light"
+              type="button"
+              [routerLink]="['/editor']"
+            >
               <fa-icon [icon]="faLongArrow"></fa-icon> Back to the list
             </button>
           </div>
           <div class="form-inline mb-4">
-            <p>Choose a title:</p>
-            <input class="form-control form-control-sm ml-3" type="text" formControlName="title"
-                   (input)="resizeInputLength($event)">
+            <label for="gapfill-title" class="mr-2">Choose a title:</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              id="gapfill-title"
+              formControlName="title"
+              (input)="resizeInputLength($event)"
+            />
           </div>
           <div class="form-inline mb-5">
-            <p>Choose an image:</p>
-            <input class="form-control form-control-sm ml-3" type="text" formControlName="image"
-                   (input)="resizeInputLength($event)">
+            <label for="gapfill-image" class="mr-2">Choose an image:</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              id="gapfill-image"
+              formControlName="image"
+              (input)="resizeInputLength($event)"
+            />
           </div>
         </div>
         <div class="gapfills-wrapper" formArrayName="gapfills">
-          <div class="form-group d-flex align-items-center mb-5"
-               *ngFor="let gapfill of getGapfillControls(); let i = index"
-               [formArrayName]="i">
-            <p>{{i + 1}}</p>
-            <div class="sentence-wrapper d-flex flex-column align-items-end"
-                 *ngFor="let sentencePart of getSentenceControls(gapfill); let j = index" [formGroupName]="j">
-              <label for="input-{{i}}{{j}}" class="badge badge-light mb-0">{{toggleLabelName(gapfill, j)}}</label>
-              <input id="input-{{i}}{{j}}" #inputField class="form-control form-control-sm ml-3 sentencePartInput" type="text"
-                     [formControlName]="toggleControlName(gapfill, j)"
-                     (keyup.enter)="delimitInput($event, gapfill, j, inputField)"
-                     (keyup.control.enter)="toggleInputType(gapfill, j)"
-                     (input)="resizeInputLength($event)">
+          <div
+            class="gapfill-sentence-wrapper form-group d-flex align-items-center mb-5"
+            *ngFor="let gapfill of getGapfillControls(); let i = index"
+            [formArrayName]="i"
+          >
+            <p>{{ i + 1 }}</p>
+            <div
+              class="sentence-wrapper d-flex flex-column align-items-end"
+              *ngFor="
+                let sentencePart of getSentenceControls(gapfill);
+                let j = index
+              "
+              [formGroupName]="j"
+            >
+              <label
+                for="input-{{ i }}{{ j }}"
+                class="badge badge-light mb-0"
+                >{{ toggleLabelName(gapfill, j) }}</label
+              >
+              <input
+                id="input-{{ i }}{{ j }}"
+                #inputField
+                class="form-control form-control-sm ml-3 sentencePartInput"
+                type="text"
+                [formControlName]="toggleControlName(gapfill, j)"
+                (keyup.enter)="delimitInput($event, gapfill, j, inputField)"
+                (keyup.control.enter)="toggleInputType(gapfill, j)"
+                (input)="resizeInputLength($event)"
+              />
             </div>
           </div>
-          <button class="btn-sentence btn btn-outline-light mt-4" type="button" (click)="generateNewLine($event)">
+          <button
+            class="btn-sentence btn btn-outline-light mt-4"
+            type="button"
+            (click)="generateNewLine($event)"
+          >
             <fa-icon class="fa-plus mr-2" [icon]="faPlus"></fa-icon>
             New sentence
           </button>
         </div>
       </form>
       <div class="confirmation-btns-wrapper d-flex justify-content-end py-4">
-        <button class="btn-reset btn btn-outline-light mr-3" type="button" (click)="onReset()">Reset</button>
-        <button class="btn-preview btn btn-outline-light mr-3" type="button" (click)="openModal()">Preview</button>
-        <button class="btn-save btn btn-light" type="submit" (click)="onSubmit()">Save
+        <button
+          class="btn-reset btn btn-outline-light mr-3"
+          type="button"
+          (click)="onReset()"
+        >
+          Reset
+        </button>
+        <button
+          class="btn-preview btn btn-outline-light mr-3"
+          type="button"
+          (click)="openModal()"
+        >
+          Preview
+        </button>
+        <button
+          class="btn-save btn btn-light"
+          type="submit"
+          (click)="onSubmit()"
+        >
+          Save
         </button>
       </div>
     </div>
   </div>
 </div>
 
-<ngx-smart-modal identifier="preview-gapfill" class="preview-gapfill d-flex justify-content-center"
-                 customClass="nsm-centered">
-  <app-gapfill-content *ngIf="formPreview && docPreview" [gapfillForm]="formPreview" [gapfillDoc]="docPreview">
+<ngx-smart-modal
+  identifier="preview-gapfill"
+  class="preview-gapfill d-flex justify-content-center"
+  customClass="nsm-centered"
+>
+  <app-gapfill-content
+    *ngIf="formPreview && docPreview"
+    [gapfillForm]="formPreview"
+    [gapfillDoc]="docPreview"
+  >
   </app-gapfill-content>
 </ngx-smart-modal>
 
-<ngx-smart-modal identifier="instructions-gapfill" class="instructions-gapfill d-flex justify-content-center"
-                 customClass="nsm-centered">
+<ngx-smart-modal
+  identifier="instructions-gapfill"
+  class="instructions-gapfill d-flex justify-content-center"
+  customClass="nsm-centered"
+>
   <app-instructions-gapfill></app-instructions-gapfill>
 </ngx-smart-modal>
-

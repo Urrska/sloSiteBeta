@@ -56,3 +56,25 @@ a,
     }
   }
 }
+
+.editor-wrapper {
+  padding: 2rem 10rem;
+  height: $wrapper-height;
+
+  @include respond(big-desktop) {
+    padding: 3rem 15rem;
+  }
+
+  @include respond(tab-land) {
+    padding: 3rem;
+  }
+  @include respond(phone) {
+    padding: 1.5rem;
+  }
+}
+
+.input-wrapper-1 {
+  @include respond(tab-port) {
+    width: 100%;
+  }
+}
