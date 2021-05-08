@@ -6,8 +6,8 @@
         formArrayName="gapfills"
         *ngFor="let gap of gapfillDoc.gapfills; let i = index"
       >
-        <div class="sentence-row row mb-4">
-          <div class="col d-flex align-items-center" [formArrayName]="i">
+        <div class="sentence-row row">
+          <div class="col d-flex align-items-center flex-wrap" [formArrayName]="i">
             <p class="sentence-id mb-0">{{ i + 1 }}</p>
             <div
               [ngSwitch]="sentence.type"
@@ -31,16 +31,16 @@
           </div>
         </div>
       </div>
-      <div class="buttons-wrapper mt-5 pt-3">
+      <div class="buttons-wrapper mt-4">
         <button
-          class="btn-reset btn btn-outline-light mr-3"
+          class="btn-reset btn btn-outline-light mr-2"
           type="button"
           (click)="onReset()"
         >
           Reset
         </button>
         <button
-          class="btn-check btn btn-light mr-3"
+          class="btn-check btn btn-light mr-2"
           type="submit"
           [disabled]="!hasInputValue"
         >
@@ -60,12 +60,12 @@
 
   <div class="solutions-wrapper col" *ngIf="isSolutionShown">
     <div
-      class="sentence-row row mb-4"
+      class="sentence-row row"
       *ngFor="let data of gapfillDoc.gapfills; let i = index"
     >
       <div class="col d-flex align-items-center">
         <p class="sentence-id">{{ i + 1 }}.</p>
-        <p class="sentence-text ml-4">{{ getSentenceParts(data) }}</p>
+        <p class="sentence-text ml-2">{{ getSentenceParts(data) }}</p>
       </div>
     </div>
   </div>

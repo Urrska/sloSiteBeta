@@ -2,15 +2,16 @@
 
 .gapfill-content-wrapper,
 .preview-gapfill {
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
   input {
     @include input-light;
     width: 5ch;
   }
 
   .practice-wrapper {
-    font-size: 0.9rem;
-    letter-spacing: 0.75px;
-    font-weight: 400;
+    @include sentence-font;
     .sentence-row {
       .sentence-id {
         width: 0.75rem;
@@ -29,19 +30,18 @@
   }
 
   .solutions-wrapper {
-    margin-top: 1.36px;
+    @include sentence-font;
+
+    @include respond(tab-port) {
+      margin-top: 3rem;
+    }
 
     .sentence-row {
-      height: 30px;
-
       .sentence-id {
         width: 0.75rem;
+        padding: 0;
       }
     }
-  }
-
-  .buttons-wrapper {
-    border-top: solid 1px #3333;
   }
 }
 .preview-gapfill {

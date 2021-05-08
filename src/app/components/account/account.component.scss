@@ -1,15 +1,29 @@
 @import "../../../assets/styles/variables.scss";
 
 .account-container {
-  background-image: url("../../../assets/images/lake-login.jpg");
+  background-image: url("../../../assets/images/login-bg.jpg");
   background-size: cover;
   background-position: center;
+  height: 100vh;
+
+  .account-content-wrapper {
+    height: inherit;
+  }
 
   .account-panel-wrapper {
-    min-width: 26rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    min-width: 25rem;
     background-color: #fff;
     padding: 2rem 4rem 2rem;
     opacity: 0.9;
+
+    @include respond(phone) {
+      height: inherit;
+      padding: 2rem;
+      min-width: 100%;
+    }
 
     .account-title {
       color: $color-green-dark;

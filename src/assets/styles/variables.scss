@@ -31,6 +31,10 @@ $wrapper-height: calc(100vh - 8.8rem);
   font-size: 0.9rem;
   transition: all linear 0.4s;
 
+  @include respond(phone) {
+    font-size: 0.8rem;
+  }
+
   &:hover {
     text-decoration: none;
     background-color: $color-yellow !important;
@@ -53,6 +57,10 @@ $wrapper-height: calc(100vh - 8.8rem);
   border-radius: 0;
   border: solid 1px transparent;
   transition: all linear 0.4s;
+
+  @include respond(phone) {
+    font-size: 0.8rem;
+  }
 
   &:hover {
     background-color: transparent;
@@ -158,6 +166,12 @@ $wrapper-height: calc(100vh - 8.8rem);
       outline: 0;
     }
   }
+}
+
+@mixin sentence-font {
+  font-size: 0.9rem;
+  letter-spacing: 0.75px;
+  font-weight: 400;
 }
 
 ///////////////////////

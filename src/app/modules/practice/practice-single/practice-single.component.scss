@@ -19,8 +19,8 @@
       display: flex;
       flex-wrap: wrap;
       row-gap: 1rem;
-      justify-content: center !important;
-      align-items: center;
+      justify-content: flex-start !important;
+      text-align-last: start;
     }
     .practice-title {
       color: $color-green-light;
